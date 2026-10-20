@@ -1,0 +1,16 @@
+# Validates the listings of a pull request (unprivileged: no secrets, read-only token). A maintainer still reviews and
+# merges by hand.
+name: validate
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/build_index.py --offline
+      - run: python3 -m unittest discover -s tests -v

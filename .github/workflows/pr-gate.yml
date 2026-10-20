@@ -1,0 +1,34 @@
+# The pull request gate: contributors may only touch ONE listing folder. Runs as pull_request_target so it may comment
+# and close, which is why it never checks out or runs the pull request's code -- only this repository's own tools from
+# the base branch, fed the list of changed file names.
+name: pr-gate
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  gate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4          # the base branch (pull_request_target's default): our tools, not the PR's
+      - name: Changed files within one listing folder
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          ASSOC: ${{ github.event.pull_request.author_association }}
+        run: |
+          gh pr diff "$PR" --name-only > changed.txt
+          ARGS=""
+          case "$ASSOC" in OWNER|MEMBER|COLLABORATOR) ARGS="--maintainer";; esac
+          if ! python3 tools/check_pr.py $ARGS < changed.txt > verdict.txt; then
+            cat verdict.txt
+            { echo "This pull request was closed automatically:"; echo; sed 's/^REJECT /- /' verdict.txt; echo;
+              echo "A listing pull request may only add or change files in one \`listings/<id>/\` folder."
+              echo "See CONTRIBUTING.md."; } > comment.md
+            gh pr comment "$PR" --body-file comment.md
+            gh pr close "$PR"
+            exit 1
+          fi
+          cat verdict.txt

@@ -1,0 +1,43 @@
+# Builds index.json (each approved release resolved on GitHub: asset URL, size, SHA-256) and publishes it on GitHub
+# Pages: https://phorepoc.github.io/index/index.json, plus the listings' icons and screenshots. Runs on every merge to
+# main and daily, so "latest" listings pick up new releases.
+name: publish
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the index
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          INDEX_BASE: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+        run: |
+          mkdir -p site
+          python3 tools/build_index.py --out site/index.json
+          cp -r listings site/listings
+          cp schema/listing.schema.json site/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
