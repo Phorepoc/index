@@ -1,10 +1,10 @@
 # index
 
-This is the list of apps, games, drivers and codecs you can install from Get Apps, Phorepoc's app store. Nothing is
+This is the list of apps, games, drivers and codecs you can install from the Catalogue, Phorepoc's software store. Nothing is
 hosted here. Each app lives in its own repository and publishes its own releases. This list just says which repository,
 which releases are approved, and which devices they're for.
 
-Get Apps reads the published list at **https://phorepoc.github.io/index/index.json**, which is rebuilt every time
+The Catalogue reads the published list at **https://phorepoc.github.io/index/index.json**, which is rebuilt every time
 something is merged, and once a day.
 
 ## How it works
@@ -17,7 +17,7 @@ screenshots. The listing names the app's repository and the releases we've appro
 When the list is published, a workflow looks up each approved release on GitHub. It finds the file to install and
 records its address, size and SHA-256. A release it can't find is left out until it can.
 
-On the phone, Get Apps only shows what fits the device, downloads the file and checks its SHA-256 before installing.
+On the phone, the Catalogue only shows what fits the device, downloads the file and checks its SHA-256 before installing.
 People can also add other lists and single repositories next to this one. This is just the default.
 
 ## Adding your app
