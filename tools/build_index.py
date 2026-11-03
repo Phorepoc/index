@@ -30,6 +30,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LISTINGS = os.path.join(ROOT, "listings")
 SCHEMA = os.path.join(ROOT, "schema", "listing.schema.json")
 BASE = os.environ.get("INDEX_BASE", "https://phorepoc.github.io/index")   # where publish.yml serves the site
+# The host in lower case: publish.yml builds it from the owner's name ("Phorepoc"), and a phone that already holds a TLS
+# session for phorepoc.github.io (the index itself) failed every icon download from Phorepoc.github.io
+_scheme, _sep, _rest = BASE.partition("://")
+_host, _slash, _path = _rest.partition("/")
+BASE = _scheme + _sep + _host.lower() + _slash + _path
 
 
 class Invalid(Exception):
