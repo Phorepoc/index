@@ -5,6 +5,7 @@
   "category": "codec",
   "license": "Apache-2.0 AND LGPL-2.1-or-later",
   "homepage": "https://github.com/Phorepoc/codecpack",
+  "icon": "icon.png",
   "source": {"type": "github", "repo": "Phorepoc/codecpack", "asset": "^codecpack-x32\\.sis$"},
   "releases": "latest",
   "compatibility": {"arch": ["x32"]}
