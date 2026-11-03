@@ -1,0 +1,11 @@
+{
+  "id": "codecpack-arm",
+  "name": "Codec pack",
+  "summary": "Modern video and audio formats for phones: FFmpeg's decoders as a separate, replaceable library",
+  "category": "codec",
+  "license": "Apache-2.0 AND LGPL-2.1-or-later",
+  "homepage": "https://github.com/Phorepoc/codecpack",
+  "source": {"type": "github", "repo": "Phorepoc/codecpack", "asset": "^codecpack-arm\\.sis$"},
+  "releases": "latest",
+  "compatibility": {"arch": ["arm"]}
+}
