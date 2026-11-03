@@ -1,6 +1,6 @@
 # index
 
-This is the list of apps, games, drivers and codecs you can install from Catalogue, Phorepoc's software store. Nothing is
+This is the list of apps, games, drivers and codecs you can install from Catalogue, Phorepoc OS's software store. Nothing is
 hosted here. Each app lives in its own repository and publishes its own releases. This list just says which repository,
 which releases are approved, and which devices they're for.
 
