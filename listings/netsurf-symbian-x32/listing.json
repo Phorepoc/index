@@ -1,0 +1,19 @@
+{
+  "id": "netsurf-symbian-x32",
+  "name": "NetSurf web engine (PC)",
+  "summary": "The NetSurf engine for the Phorepoc browser: a small, fast engine, as a separate, replaceable plug-in",
+  "category": "library",
+  "license": "GPL-2.0-only AND MIT AND curl AND IJG AND Libpng AND FTL AND Apache-2.0 AND MPL-2.0",
+  "homepage": "https://github.com/Phorepoc/netsurf-symbian",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/netsurf-symbian",
+    "asset": "^netsurf-symbian-x32[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "x32"
+    ]
+  }
+}
