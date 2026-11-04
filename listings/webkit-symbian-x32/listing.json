@@ -1,0 +1,19 @@
+{
+  "id": "webkit-symbian-x32",
+  "name": "WebKit web engine (PC)",
+  "summary": "The WebKit engine for the Phorepoc browser: install it to browse the web, as a separate, replaceable plug-in",
+  "category": "library",
+  "license": "BSD-2-Clause AND LGPL-2.1-only AND MIT AND Apache-2.0 AND MPL-2.0",
+  "homepage": "https://github.com/Phorepoc/webkit-symbian",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/webkit-symbian",
+    "asset": "^webkit-symbian-x32\\.sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "x32"
+    ]
+  }
+}
