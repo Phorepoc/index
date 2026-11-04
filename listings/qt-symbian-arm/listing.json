@@ -1,0 +1,19 @@
+{
+  "id": "qt-symbian-arm",
+  "name": "Qt 4.8 (phones)",
+  "summary": "Qt 4.8.7, the libraries Qt and Qt Quick apps for Symbian^3 need, as a separate, replaceable package",
+  "category": "library",
+  "license": "LGPL-2.1-only WITH Qt-LGPL-exception-1.1",
+  "homepage": "https://github.com/Phorepoc/qt-symbian",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/qt-symbian",
+    "asset": "^qt-symbian-arm[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "arm"
+    ]
+  }
+}
