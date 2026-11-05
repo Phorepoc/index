@@ -3,8 +3,13 @@
   "name": "NetSurf web engine (PC)",
   "summary": "The NetSurf engine for the Phorepoc browser: a small, fast engine, as a separate, replaceable plug-in",
   "category": "library",
+  "tags": [
+    "browser engine",
+    "web"
+  ],
   "license": "GPL-2.0-only AND MIT AND curl AND IJG AND Libpng AND FTL AND Apache-2.0 AND MPL-2.0",
   "homepage": "https://github.com/Phorepoc/netsurf-symbian",
+  "icon": "icon.png",
   "source": {
     "type": "github",
     "repo": "Phorepoc/netsurf-symbian",

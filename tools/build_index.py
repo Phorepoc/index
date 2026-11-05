@@ -70,6 +70,10 @@ def check(value, schema: dict, where: str) -> None:
     if t == "array":
         if len(value) < schema.get("minItems", 0):
             raise Invalid(f"{where}: needs at least {schema['minItems']} item(s)")
+        if len(value) > schema.get("maxItems", 1 << 30):
+            raise Invalid(f"{where}: at most {schema['maxItems']} item(s)")
+        if schema.get("uniqueItems") and len({json.dumps(v, sort_keys=True) for v in value}) != len(value):
+            raise Invalid(f"{where}: items must be unique")
         for i, item in enumerate(value):
             check(item, schema.get("items", {}), f"{where}[{i}]")
     if t == "object":

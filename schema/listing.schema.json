@@ -53,7 +53,12 @@
     },
     "requires": {"description": "Ids of other listings that must be installed first",
                  "type": "array", "items": {"type": "string"}},
-    "icon": {"description": "File in the listing folder (PNG, square, >= 128 px)", "type": "string"},
+    "tags": {
+      "description": "What the item is, for Catalogue's Categories filters: one to five words from this fixed vocabulary (see CONTRIBUTING.md)",
+      "type": "array", "minItems": 1, "maxItems": 5, "uniqueItems": true,
+      "items": {"enum": ["browser engine", "library", "codec", "driver", "game", "theme", "tool", "media", "web", "graphics", "network", "security", "productivity", "developer", "system"]}
+    },
+    "icon": {"description": "File in the listing folder (PNG, square, >= 128 px; the SVG source may sit next to it as icon.svg)", "type": "string"},
     "screenshots": {"description": "Files in the listing folder", "type": "array", "items": {"type": "string"}}
   }
 }

@@ -81,6 +81,10 @@ class Listing(unittest.TestCase):
             "bad releases": dict(GOOD, releases="newest"),
             "folder name": dict(GOOD, id="other"),
             "missing icon": dict(GOOD, icon="icon.png"),
+            "unknown tag": dict(GOOD, tags=["shiny"]),
+            "duplicate tag": dict(GOOD, tags=["game", "game"]),
+            "too many tags": dict(GOOD, tags=["game", "media", "web", "tool", "driver", "theme"]),
+            "no tags": dict(GOOD, tags=[]),
         }
         for what, listing in cases.items():
             with self.subTest(what):
@@ -95,6 +99,27 @@ class Listing(unittest.TestCase):
     def test_latest_and_icon(self):
         self.write("hello", dict(GOOD, releases="latest", icon="icon.png"), files=["icon.png"])
         self.assertEqual(build_index.load_listing("hello", self.schema)["releases"], "latest")
+    def test_tags(self):
+        self.write("hello", dict(GOOD, tags=["browser engine", "web"]))
+        self.assertEqual(build_index.load_listing("hello", self.schema)["tags"], ["browser engine", "web"])
+
+
+class Repository(unittest.TestCase):
+    """the listings that are in this repository: each has tags and a square PNG icon of at least 128 px"""
+
+    def test_every_listing_has_tags_and_an_icon(self):
+        schema = json.load(open(build_index.SCHEMA, encoding="utf-8"))
+        for lid in sorted(d for d in os.listdir(build_index.LISTINGS) if os.path.isdir(os.path.join(build_index.LISTINGS, d))):
+            with self.subTest(lid):
+                item = build_index.load_listing(lid, schema)
+                self.assertTrue(item.get("tags"), "no tags")
+                self.assertIn("icon", item, "no icon")
+                with open(os.path.join(build_index.LISTINGS, lid, item["icon"]), "rb") as f:
+                    head = f.read(24)
+                self.assertEqual(head[1:4], b"PNG")
+                w, h = int.from_bytes(head[16:20], "big"), int.from_bytes(head[20:24], "big")
+                self.assertEqual(w, h)
+                self.assertGreaterEqual(w, 128)
 
 
 if __name__ == "__main__":

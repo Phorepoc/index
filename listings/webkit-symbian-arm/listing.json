@@ -3,8 +3,13 @@
   "name": "WebKit web engine (phones)",
   "summary": "The WebKit engine for the Phorepoc browser: install it to browse the web, as a separate, replaceable plug-in",
   "category": "library",
+  "tags": [
+    "browser engine",
+    "web"
+  ],
   "license": "BSD-2-Clause AND LGPL-2.1-only AND MIT AND Apache-2.0 AND MPL-2.0",
   "homepage": "https://github.com/Phorepoc/webkit-symbian",
+  "icon": "icon.png",
   "source": {
     "type": "github",
     "repo": "Phorepoc/webkit-symbian",

@@ -29,7 +29,7 @@ hand before merging.
 ## Working on the index itself
 
 `tools/build_index.py` checks the listings and builds `index.json`, and `--offline` only does the checks.
-`tools/check_pr.py` is what enforces the one-folder rule. The tests run with
+`tools/check_pr.py` is what enforces the one-folder rule. `tools/make_icons.py` draws the listing icons (`tools/icongen.py`: the Etesian design language). The tests run with
 `python3 -m unittest discover -s tests`.
 
 ## License
