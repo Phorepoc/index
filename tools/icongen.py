@@ -284,6 +284,8 @@ GLYPHS = {
     # a tray with a down arrow: get something onto the device (Catalogue)
     "download": [("line", [(12, 3), (12, 14)]), ("line", [(7.5, 9.5), (12, 14), (16.5, 9.5)]),
                  ("line", [(4, 14.5), (4, 20), (20, 20), (20, 14.5)])],
+    # a screen recorder: a phone outline with a recording dot (a ring round a small disc)
+    "record": [("rrect", 6.5, 2.5, 11, 19, 2.5), ("circle", 12, 11, 3.6), ("circle", 12, 11, 1.2), ("line", [(10.5, 18.5), (13.5, 18.5)])],
     # a prompt: the terminal
     "prompt": [("rrect", 3, 4, 18, 16, 2.5), ("line", [(7, 9.5), (10.5, 12.5), (7, 15.5)]), ("line", [(12.5, 15.5), (17, 15.5)])],
 }

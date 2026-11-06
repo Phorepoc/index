@@ -16,6 +16,7 @@ ICONS = {
     "netsurf-symbian-arm": ("compass", A["browser"]), "netsurf-symbian-x32": ("compass", A["browser"]),
     "qt-symbian-arm": ("cube", A["maps"]),
     "codecpack-arm": ("play", A["videos"]), "codecpack-x32": ("play", A["videos"]),
+    "screenrec-a64-arm": ("record", A["videos"]),
 }
 
 if __name__ == "__main__":
