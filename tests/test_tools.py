@@ -122,5 +122,29 @@ class Repository(unittest.TestCase):
                 self.assertGreaterEqual(w, 128)
 
 
+class Categories(unittest.TestCase):
+    """the categories block of index.json, which the phone app relies on"""
+    SCHEMA = json.load(open(build_index.SCHEMA, encoding="utf-8"))
+
+    def test_counts_order_and_icons(self):
+        items = [{"tags": ["media", "codec"], "category": "codec"}, {"tags": ["web"], "category": "game"},
+                 {"tags": ["browser engine", "web"], "category": "app"}]
+        cats = build_index.categories(items, self.SCHEMA)
+        self.assertEqual([c["tag"] for c in cats], ["browser engine", "codec", "game", "media", "web"])  # vocabulary order
+        self.assertEqual({c["tag"]: c["count"] for c in cats}, {"browser engine": 1, "codec": 1, "game": 1, "media": 1, "web": 2})
+        self.assertEqual(cats[0]["name"], "Browser engines")
+        self.assertTrue(cats[0]["icon_url"].endswith("/categories/browser-engine.png"))
+        self.assertEqual(set(cats[0]), {"tag", "name", "count", "icon_url"})
+
+    def test_every_vocabulary_tag_has_an_icon(self):
+        for tag in self.SCHEMA["properties"]["tags"]["items"]["enum"]:
+            for ext in ("png", "svg"):
+                self.assertTrue(os.path.isfile(os.path.join(os.path.dirname(HERE), "categories", f"{tag.replace(' ', '-')}.{ext}")), tag)
+
+    def test_banner(self):
+        self.assertEqual(set(build_index.BANNER), {"title", "text"})
+        self.assertEqual(build_index.BANNER["title"], "Welcome to Catalogue")
+
+
 if __name__ == "__main__":
     unittest.main()

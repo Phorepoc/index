@@ -12,7 +12,8 @@ hashed here, so the app can check what it fetched). --offline skips the GitHub p
 request check runs). GITHUB_TOKEN, when set, raises the API rate limit.
 
 Output (sorted by id, stable):
-  {"format": 1, "generated": "<UTC time>", "items": [{<the listing>, "description": ..., "icon_url": ...,
+  {"format": 1, "generated": "<UTC time>", "categories": [{"tag", "name", "count", "icon_url"}, ...] (vocabulary
+   order, only tags with items), "banner": {"title", "text"}, "items": [{<the listing>, "description": ..., "icon_url": ...,
    "screenshot_urls": [...], "resolved": [{"tag", "published", "asset", "url", "size", "sha256"}, ...]}, ...]}
 """
 from __future__ import annotations
@@ -138,6 +139,26 @@ def resolve(listing: dict) -> list:
     return out
 
 
+NAMES = {"browser engine": "Browser engines", "library": "Libraries", "codec": "Codecs", "driver": "Drivers",
+         "game": "Games", "theme": "Themes", "tool": "Tools", "media": "Media", "web": "Web", "graphics": "Graphics",
+         "network": "Network", "security": "Security", "productivity": "Productivity", "developer": "Developer",
+         "system": "System"}
+BANNER = {"title": "Welcome to Catalogue", "text": "Apps, codecs, engines and tools for your Phorepoc phone, from open source."}
+
+
+def categories(items: list, schema: dict) -> list:
+    """the vocabulary tags (schema order) that have items: an item counts under each of its tags and under its category
+    when that is also a vocabulary word; icon_url points at categories/<tag with dashes>.png"""
+    vocab = schema["properties"]["tags"]["items"]["enum"]
+    out = []
+    for tag in vocab:
+        n = sum(1 for i in items if tag in i.get("tags", []) or i.get("category") == tag)
+        if n:
+            out.append({"tag": tag, "name": NAMES.get(tag, tag.capitalize()), "count": n,
+                        "icon_url": f"{BASE}/categories/{tag.replace(' ', '-')}.png"})
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=os.path.join(ROOT, "index.json"))
@@ -173,7 +194,7 @@ def main() -> int:
         return 1
     if not a.offline:
         doc = {"format": 1, "generated": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-               "items": items}
+               "categories": categories(items, schema), "banner": BANNER, "items": items}
         with open(a.out, "w", encoding="utf-8", newline="\n") as f:
             json.dump(doc, f, indent=1, ensure_ascii=False)
             f.write("\n")
