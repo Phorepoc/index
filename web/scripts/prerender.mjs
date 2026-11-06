@@ -14,11 +14,14 @@ const mod = await import(pathToFileURL(join(root, 'dist-ssr', 'entry-server.js')
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
 let n = 0
 for (const path of mod.prerenderPaths()) {
-  const { html, meta } = await mod.render(path)
+  const { html, meta, quasar } = await mod.render(path)
   const page = template
     .replace('<!--app-title-->', esc(meta.title))
     .replace('<!--app-description-->', esc(meta.description || ''))
-    .replace('<!--app-html-->', html)
+    .replace(' data-quasar-html', quasar.htmlAttrs ? ' ' + quasar.htmlAttrs : '')
+    .replace('<!--quasar-head-->', quasar.headTags + quasar.endingHeadTags)
+    .replace('class="hd-quasar" data-quasar-body', `class="hd-quasar ${quasar.bodyClasses.trim()}" ${quasar.bodyAttrs}`)
+    .replace('<!--app-html-->', html + quasar.bodyTags)
   const out = join(dist, path.replace(/^\//, ''), 'index.html')
   mkdirSync(dirname(out), { recursive: true })
   writeFileSync(out, page)

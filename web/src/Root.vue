@@ -30,7 +30,7 @@ watch(() => route.fullPath, () => {
         <span>Catalogue</span>
       </router-link>
       <form class="search" role="search" @submit.prevent>
-        <q-input v-model="q" type="search" dense outlined bg-color="white" label="Search" aria-label="Search the catalogue" clearable />
+        <q-input v-model="q" type="search" dense outlined label="Search" aria-label="Search the catalogue" clearable />
       </form>
     </div>
   </header>

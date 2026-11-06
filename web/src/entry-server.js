@@ -8,9 +8,15 @@ import { pageMeta } from './meta.js'
 
 export { prerenderPaths }
 
+// Quasar fills ssrContext._meta while rendering (body classes, the dark-mode marker, the brand colours as a <style>) and
+// finishes it in its onRendered hooks; the page template takes all of it
 export async function render(path) {
-  const { app, router } = createApp(true, { req: { headers: {} }, res: {}, _meta: {}, onRendered() {} })
+  const rendered = []
+  const ssrContext = { req: { headers: {} }, res: {}, onRendered(fn) { rendered.push(fn) } }
+  const { app, router } = createApp(true, ssrContext)
   router.push(path)
   await router.isReady()
-  return { html: await renderToString(app), meta: pageMeta(router.currentRoute.value, { itemById, categoryBySlug, banner }) }
+  const html = await renderToString(app, ssrContext)
+  for (const fn of rendered) fn()
+  return { html, quasar: ssrContext._meta, meta: pageMeta(router.currentRoute.value, { itemById, categoryBySlug, banner }) }
 }
