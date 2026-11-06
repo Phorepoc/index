@@ -1,7 +1,6 @@
 {
   "id": "qt-symbian-arm",
   "name": "Qt 4.8 (phones)",
-  "summary": "Qt 4.8.7, the libraries Qt and Qt Quick apps for Symbian^3 need, as a separate, replaceable package",
   "category": "library",
   "tags": [
     "library",

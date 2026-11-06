@@ -17,7 +17,7 @@ import build_index  # noqa: E402
 import check_pr  # noqa: E402
 
 GOOD = {
-    "id": "hello", "name": "Hello", "summary": "Says hello", "category": "app", "license": "EPL-1.0",
+    "id": "hello", "name": "Hello", "category": "app", "license": "EPL-1.0",
     "source": {"type": "github", "repo": "someone/hello"}, "releases": ["v1.0"],
     "compatibility": {"arch": ["arm", "x32"]},
 }
@@ -85,6 +85,8 @@ class Listing(unittest.TestCase):
             "duplicate tag": dict(GOOD, tags=["game", "game"]),
             "too many tags": dict(GOOD, tags=["game", "media", "web", "tool", "driver", "theme"]),
             "no tags": dict(GOOD, tags=[]),
+            "text written here": dict(GOOD, summary="Says hello"),
+            "bad text folder": dict(GOOD, source=dict(GOOD["source"], text="../x")),
         }
         for what, listing in cases.items():
             with self.subTest(what):
@@ -120,6 +122,55 @@ class Repository(unittest.TestCase):
                 w, h = int.from_bytes(head[16:20], "big"), int.from_bytes(head[20:24], "big")
                 self.assertEqual(w, h)
                 self.assertGreaterEqual(w, 128)
+
+
+class AuthorText(unittest.TestCase):
+    """the summary and description come from the item's repo: the newest approved release, else the default branch"""
+    LISTING = dict(GOOD, source={"type": "github", "repo": "someone/hello"})
+    RESOLVED = [{"tag": "v1.0", "published": "2026-01-01T00:00:00Z"}, {"tag": "v1.1", "published": "2026-02-01T00:00:00Z"}]
+
+    def fetch(self, files):
+        asked = []
+
+        def github(url):
+            asked.append(url)
+            if url in files:
+                return files[url].encode("utf-8")
+            raise build_index.urllib.error.HTTPError(url, 404, "Not Found", {}, None)
+        old, build_index.github = build_index.github, github
+        try:
+            return build_index.author_text(self.LISTING, self.RESOLVED), asked
+        finally:
+            build_index.github = old
+
+    def test_newest_release(self):
+        raw = "https://raw.githubusercontent.com/someone/hello/v1.1/catalogue/"
+        (summary, desc), asked = self.fetch({raw + "summary.txt": "Says hello\n", raw + "description.md": "Hello.\n"})
+        self.assertEqual((summary, desc), ("Says hello", "Hello.\n"))
+        self.assertTrue(asked[0].startswith(raw))
+
+    def test_default_branch_when_the_release_predates_it(self):
+        raw = "https://raw.githubusercontent.com/someone/hello/HEAD/catalogue/"
+        (summary, desc), _ = self.fetch({raw + "summary.txt": "Says hello"})
+        self.assertEqual((summary, desc), ("Says hello", ""))
+
+    def test_none(self):
+        with self.assertRaises(build_index.Invalid):
+            self.fetch({})
+
+    def test_too_long(self):
+        raw = "https://raw.githubusercontent.com/someone/hello/v1.1/catalogue/"
+        with self.assertRaises(build_index.Invalid):
+            self.fetch({raw + "summary.txt": "x" * 141})
+
+    def test_plain(self):
+        md = ("> FFmpeg is the leading\n> multimedia framework.\n>\n> -- [FFmpeg](https://ffmpeg.org)\n\n"
+              "It is built as `pheffmpeg.dll`,\nloaded at **run** time.\n")
+        self.assertEqual(build_index.plain(md),
+                         "FFmpeg is the leading multimedia framework.\n\n— FFmpeg\n\n"
+                         "It is built as pheffmpeg.dll, loaded at run time.")
+        self.assertEqual(build_index.plain("Use `record_start` / `record_stop`, _not_ snake_case_name.\n"),
+                         "Use record_start / record_stop, not snake_case_name.")
 
 
 class Categories(unittest.TestCase):

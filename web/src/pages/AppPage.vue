@@ -44,7 +44,7 @@ const date = (s) => (s ? s.slice(0, 10) : '')
 
     <section v-if="html" class="panel prose" aria-labelledby="about">
       <h2 id="about">About</h2>
-      <div v-html="html" />
+      <div class="md" v-html="html" />
     </section>
 
     <section class="panel" aria-labelledby="det">

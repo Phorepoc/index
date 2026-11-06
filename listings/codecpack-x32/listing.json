@@ -1,7 +1,6 @@
 {
   "id": "codecpack-x32",
   "name": "Codec pack (PC)",
-  "summary": "Modern video and audio formats for the PC: FFmpeg's decoders as a separate, replaceable library",
   "category": "codec",
   "tags": [
     "codec",

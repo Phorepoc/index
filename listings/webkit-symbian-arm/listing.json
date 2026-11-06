@@ -1,7 +1,6 @@
 {
   "id": "webkit-symbian-arm",
   "name": "WebKit web engine (phones)",
-  "summary": "The WebKit engine for the Phorepoc browser: install it to browse the web, as a separate, replaceable plug-in",
   "category": "library",
   "tags": [
     "browser engine",

@@ -8,12 +8,15 @@
 For each listings/<id>/listing.json: validate it against schema/listing.schema.json (and the folder rules: the id is
 the folder's name, icon and screenshots exist), then resolve its approved releases on GitHub -- every release's
 installable asset (the file name matching `source.asset`), its download URL, size and SHA-256 (downloaded once and
-hashed here, so the app can check what it fetched). --offline skips the GitHub part (validation only: what a pull
+hashed here, so the app can check what it fetched). The store text comes from the item's own repo, written by its
+authors: <source.text, default catalogue>/summary.txt and description.md at the newest approved release, or on the
+default branch when that release predates them. --offline skips the GitHub part (validation only: what a pull
 request check runs). GITHUB_TOKEN, when set, raises the API rate limit.
 
 Output (sorted by id, stable):
   {"format": 1, "generated": "<UTC time>", "categories": [{"tag", "name", "count", "icon_url"}, ...] (vocabulary
-   order, only tags with items), "banner": {"title", "text"}, "items": [{<the listing>, "description": ..., "icon_url": ...,
+   order, only tags with items), "banner": {"title", "text"}, "items": [{<the listing>, "summary": ..., "description":
+   <Markdown>, "description_plain": <the same as plain text, for screens that draw no Markdown>, "icon_url": ...,
    "screenshot_urls": [...], "resolved": [{"tag", "published", "asset", "url", "size", "sha256"}, ...]}, ...]}
 """
 from __future__ import annotations
@@ -25,6 +28,7 @@ import json
 import os
 import re
 import sys
+import urllib.error
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -105,8 +109,6 @@ def load_listing(lid: str, schema: dict) -> dict:
     for f in ([listing["icon"]] if "icon" in listing else []) + listing.get("screenshots", []):
         if "/" in f or "\\" in f or not os.path.isfile(os.path.join(folder, f)):
             raise Invalid(f"{lid}: {f!r} is not a file in the listing folder")
-    if "description" not in listing and os.path.isfile(os.path.join(folder, "listing.md")):
-        listing["description"] = open(os.path.join(folder, "listing.md"), encoding="utf-8").read()
     return listing
 
 
@@ -137,6 +139,57 @@ def resolve(listing: dict) -> list:
                         "url": a["browser_download_url"], "size": len(data),
                         "sha256": hashlib.sha256(data).hexdigest()})
     return out
+
+
+def author_text(listing: dict, resolved: list) -> tuple[str, str]:
+    """(summary, description) from the item's repo: at the newest approved release, else on the default branch"""
+    repo = listing["source"]["repo"]
+    folder = listing["source"].get("text", "catalogue")
+    newest = max(resolved, key=lambda r: r.get("published") or "")["tag"]
+    for ref in (newest, "HEAD"):
+        try:
+            summary = github(f"https://raw.githubusercontent.com/{repo}/{ref}/{folder}/summary.txt").decode("utf-8")
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                continue
+            raise
+        summary = " ".join(summary.split())
+        if not summary or len(summary) > 140:
+            raise Invalid(f"{listing['id']}: {repo} {folder}/summary.txt must be one line of 1-140 characters")
+        try:
+            description = github(f"https://raw.githubusercontent.com/{repo}/{ref}/{folder}/description.md").decode("utf-8")
+        except urllib.error.HTTPError as e:
+            if e.code != 404:
+                raise
+            description = ""
+        return summary, description.strip() + "\n" if description.strip() else ""
+    raise Invalid(f"{listing['id']}: {repo} has no {folder}/summary.txt (the store text its authors write)")
+
+
+def plain(md: str) -> str:
+    """the description as plain text: paragraphs on one line, quotes, links and code marks resolved"""
+    paras, cur = [], []
+    for line in md.splitlines() + [""]:
+        line = line.strip()
+        line = re.sub(r"^>\s?", "", line)
+        if not line:
+            if cur:
+                paras.append(" ".join(cur))
+            cur = []
+            continue
+        cur.append(line)
+    out = []
+    for p in paras:
+        p = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", p)
+        code = re.findall(r"`([^`]+)`", p)   # kept as written: no emphasis inside (record_start)
+        p = re.sub(r"`[^`]+`", "\0", p)
+        p = re.sub(r"(\*\*|\*)(\S(?:.*?\S)?)\1", r"\2", p)
+        p = re.sub(r"(?<!\w)(__|_)(\S(?:.*?\S)?)\1(?!\w)", r"\2", p)
+        p = re.sub("\0", lambda _m, it=iter(code): next(it), p)
+        p = re.sub(r"^#+\s*", "", p)
+        p = re.sub(r"^--\s+", "— ", p)
+        out.append(p)
+    return "\n\n".join(out)
 
 
 NAMES = {"browser engine": "Browser engines", "library": "Libraries", "codec": "Codecs", "driver": "Drivers",
@@ -178,6 +231,10 @@ def main() -> int:
             if not a.offline:
                 try:
                     item["resolved"] = resolve(item)
+                    item["summary"], description = author_text(item, item["resolved"])
+                    if description:
+                        item["description"] = description
+                        item["description_plain"] = plain(description)
                 except (Invalid, OSError) as e:
                     # one listing whose releases cannot be resolved (none yet, a deleted tag) does not take the
                     # whole index down: it is left out until it resolves again

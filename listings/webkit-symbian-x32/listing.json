@@ -1,7 +1,6 @@
 {
   "id": "webkit-symbian-x32",
   "name": "WebKit web engine (PC)",
-  "summary": "The WebKit engine for the Phorepoc browser: install it to browse the web, as a separate, replaceable plug-in",
   "category": "library",
   "tags": [
     "browser engine",

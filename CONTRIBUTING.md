@@ -1,13 +1,22 @@
 # Adding a listing
 
 1. Publish your item as a **GitHub release** in its own repository, with the installable file (a `.sis` / `.sisx`,
-   or what `source.asset` matches) attached as a release asset.
+   or what `source.asset` matches) attached as a release asset. The store text is yours too and lives in that
+   repository, in a `catalogue/` folder (or the folder `source.text` names):
+
+   ```
+   catalogue/
+     summary.txt      required: one line, up to 140 characters
+     description.md   optional: the long description (Markdown)
+   ```
+
+   Catalogue takes them from your newest approved release (from the default branch when that release has none),
+   so the text changes with your releases and never needs a pull request here.
 2. Fork this repository and add a folder `listings/<id>/` (the id: lower case letters, digits, `-` and `.`):
 
    ```
    listings/hello/
      listing.json     required
-     listing.md       optional: the long description (Markdown)
      icon.png         optional: square, at least 128 px
      shot1.png ...    optional: screenshots
    ```
@@ -18,7 +27,6 @@
    {
      "id": "hello",
      "name": "Hello",
-     "summary": "A one-line description",
      "category": "app",
      "license": "EPL-1.0",
      "homepage": "https://github.com/someone/hello",

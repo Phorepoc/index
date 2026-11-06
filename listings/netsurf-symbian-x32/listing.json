@@ -1,7 +1,6 @@
 {
   "id": "netsurf-symbian-x32",
   "name": "NetSurf web engine (PC)",
-  "summary": "The NetSurf engine for the Phorepoc browser: a small, fast engine, as a separate, replaceable plug-in",
   "category": "library",
   "tags": [
     "browser engine",

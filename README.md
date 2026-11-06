@@ -10,8 +10,9 @@ something is merged, and once a day.
 ## How it works
 
 Every app has a folder in `listings/`, with a `listing.json` that follows
-[the schema](schema/listing.schema.json). It can also have a longer description in `listing.md`, an icon and
-screenshots. The listing names the app's repository and the releases we've approved, either specific tags or simply
+[the schema](schema/listing.schema.json), and can also have an icon and screenshots. The words people read (the
+summary and the description) come from the app's own repository, written by its authors (`catalogue/summary.txt` and
+`description.md`). The listing names the app's repository and the releases we've approved, either specific tags or simply
 `"latest"`.
 
 When the list is published, a workflow looks up each approved release on GitHub. It finds the file to install and

@@ -1,7 +1,6 @@
 {
   "id": "codecpack-arm",
   "name": "Codec pack",
-  "summary": "Modern video and audio formats for phones: FFmpeg's decoders as a separate, replaceable library",
   "category": "codec",
   "tags": [
     "codec",

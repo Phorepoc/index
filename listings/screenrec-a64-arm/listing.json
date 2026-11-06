@@ -1,7 +1,6 @@
 {
   "id": "screenrec-a64-arm",
   "name": "Screen recorder (A64)",
-  "summary": "Records the screen as H.264 video with the A64 video engine, for PhoneLab's recording",
   "category": "codec",
   "tags": [
     "codec",
@@ -14,7 +13,8 @@
   "source": {
     "type": "github",
     "repo": "Phorepoc/adaptation-a64",
-    "asset": "^screenrec-a64-arm\\.sis$"
+    "asset": "^screenrec-a64-arm\\.sis$",
+    "text": "catalogue/screenrec"
   },
   "releases": "latest",
   "compatibility": {

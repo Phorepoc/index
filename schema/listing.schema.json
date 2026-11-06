@@ -4,16 +4,13 @@
   "title": "A Phorepoc listing: one installable item and the releases this index approves",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "name", "summary", "category", "license", "source", "releases", "compatibility"],
+  "required": ["id", "name", "category", "license", "source", "releases", "compatibility"],
   "properties": {
     "id": {
       "description": "Unique id, the listing folder's name: lower case, digits, '-' and '.'",
       "type": "string", "pattern": "^[a-z0-9][a-z0-9.-]{1,62}$"
     },
     "name": {"type": "string", "minLength": 1, "maxLength": 64},
-    "summary": {"description": "One line", "type": "string", "minLength": 1, "maxLength": 140},
-    "description": {"description": "Plain text or Markdown; listing.md next to listing.json is used when this is absent",
-                    "type": "string"},
     "category": {"enum": ["app", "game", "driver", "library", "codec", "theme", "tool", "system"]},
     "license": {"description": "SPDX expression", "type": "string", "minLength": 1},
     "homepage": {"type": "string", "format": "uri"},
@@ -27,7 +24,9 @@
         "type": {"enum": ["github"]},
         "repo": {"description": "owner/name", "type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"},
         "asset": {"description": "Regular expression the installable asset's file name must match (default: \\.sisx?$)",
-                  "type": "string"}
+                  "type": "string"},
+        "text": {"description": "The folder in the repo holding the store text, summary.txt (one line) and description.md (Markdown), written by the item's authors (default: catalogue)",
+                 "type": "string", "pattern": "^[A-Za-z0-9_-][A-Za-z0-9_.-]*(/[A-Za-z0-9_-][A-Za-z0-9_.-]*)*$"}
       }
     },
     "releases": {
