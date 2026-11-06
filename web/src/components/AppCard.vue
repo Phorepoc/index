@@ -1,0 +1,15 @@
+<script setup>
+import { archLabel } from '../data.js'
+defineProps({ item: { type: Object, required: true } })
+</script>
+
+<template>
+  <router-link :to="`/app/${item.id}/`" class="card app-card">
+    <img class="icon" :src="item.icon_url" alt="" width="64" height="64" loading="lazy">
+    <span class="app-text">
+      <span class="app-name">{{ item.name }}</span>
+      <span class="app-sum">{{ item.summary }}</span>
+      <span class="app-meta">{{ archLabel(item) }} &middot; {{ item.license }}</span>
+    </span>
+  </router-link>
+</template>

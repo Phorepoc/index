@@ -1,0 +1,98 @@
+/* Copyright The Phorepoc Authors
+ * SPDX-License-Identifier: Apache-2.0
+ * The store's own rules, on the Etesian tokens (--hd-*): light pages under a dark bar, dark mode follows the system
+ * (data-hd-mode="auto" on <html>). Phone first; widened from 640 px.
+ */
+:root {
+  --st-accent: #1C51AF;
+  --st-focus: var(--hd-c-focus);
+  --bar-bg: linear-gradient(#3A3A3A, #141414);   /* the N9 dark chrome, in both colour modes */
+  --bar-fg: #FFFFFF;
+  --bar-fg-2: #C8C8C8;
+}
+.hd-quasar { --q-primary: #1C51AF; }   /* white text on the default Etesian blue is only 3:1 */
+html { background: var(--hd-c-bg); }
+body {
+  margin: 0; background: var(--hd-c-bg); color: var(--hd-c-fg);
+  font-family: var(--hd-font-family-light); font-weight: var(--hd-font-weight-regular);
+  font-size: var(--hd-font-size-default); line-height: var(--hd-font-line-height-prose);
+}
+@media (prefers-color-scheme: dark) { :root { --st-accent: #8fb4ff; } }
+a { color: var(--hd-c-link); }
+a:focus-visible, button:focus-visible, .card:focus-visible { outline: 3px solid var(--st-focus); outline-offset: 2px; }
+h1, h2, h3 { font-weight: var(--hd-font-weight-light); line-height: var(--hd-font-line-height-tight); margin: 0 0 .5em; }
+h1 { font-size: 2rem; }
+h2 { font-size: var(--hd-font-size-xlarge); margin-top: 1.6em; }
+h3 { font-size: var(--hd-font-size-large); margin-top: 1.2em; }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; }
+ul { list-style: none; margin: 0; padding: 0; }
+.muted { color: var(--hd-c-fg-secondary); }
+
+.skip { position: absolute; left: -999px; top: 0; background: var(--hd-c-surface); padding: 8px 12px; z-index: 10; }
+.skip:focus { left: 8px; top: 8px; }
+
+.bar { background: var(--bar-bg); color: var(--bar-fg); position: sticky; top: 0; z-index: 5; }
+.bar-in { max-width: 1100px; margin: 0 auto; padding: 8px 16px; display: flex; align-items: center; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font-size: var(--hd-font-size-large); min-height: 44px; }
+.search { flex: 1; max-width: 420px; margin-left: auto; }
+.search .q-field { --q-primary: #fff; }
+
+main, .foot { max-width: 1100px; margin: 0 auto; padding: 16px; }
+main { min-height: 70vh; }
+.foot { color: var(--hd-c-fg-secondary); font-size: var(--hd-font-size-small); border-top: 1px solid var(--hd-c-divider); margin-top: 32px; }
+
+.hero { background: var(--bar-bg); color: var(--bar-fg); border-radius: 16px; padding: 28px 20px; margin: 8px 0 0; }
+.hero h1 { font-size: 2.2rem; margin-bottom: .3em; color: inherit; }
+.hero p { margin: 0; color: var(--bar-fg-2); font-size: var(--hd-font-size-large); max-width: 40em; }
+
+.card { display: flex; background: var(--hd-c-surface); border: 1px solid var(--hd-c-divider); border-radius: 14px; color: inherit; text-decoration: none; }
+a.card:hover { background: var(--hd-c-surface-raised); }
+.icon { width: 64px; height: 64px; flex: none; display: block; }
+.icon.big { width: 96px; height: 96px; }
+
+.cat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.cat { flex-direction: column; align-items: center; text-align: center; padding: 16px 8px; gap: 4px; min-height: 44px; height: 100%; box-sizing: border-box; }
+.cat-name { font-size: var(--hd-font-size-large); }
+.cat-count { color: var(--hd-c-fg-secondary); font-size: var(--hd-font-size-small); }
+
+.app-list { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.app-card { gap: 14px; padding: 12px; align-items: center; }
+.app-text { display: flex; flex-direction: column; min-width: 0; }
+.app-name { font-size: var(--hd-font-size-large); font-weight: var(--hd-font-weight-regular); }
+.app-sum { color: var(--hd-c-fg-secondary); font-size: var(--hd-font-size-small); }
+.app-meta { color: var(--hd-c-fg-secondary); font-size: var(--hd-font-size-xsmall); margin-top: 2px; }
+
+.crumbs { margin: 12px 0; font-size: var(--hd-font-size-small); color: var(--hd-c-fg-secondary); }
+.page-head { display: flex; gap: 16px; align-items: center; margin: 8px 0 16px; }
+.page-head h1 { margin: 0; }
+.summary { margin: .3em 0 .6em; font-size: var(--hd-font-size-large); color: var(--hd-c-fg-secondary); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px; border-radius: 16px; background: var(--hd-c-surface-raised); border: 1px solid var(--hd-c-divider); color: inherit; text-decoration: none; font-size: var(--hd-font-size-small); }
+
+.panel { background: var(--hd-c-surface); border: 1px solid var(--hd-c-divider); border-radius: 14px; padding: 4px 20px 20px; margin: 16px 0; }
+.downloads li { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; margin: 12px 0 18px; }
+.downloads .q-btn { min-height: 44px; padding: 0 20px; }
+.dl-meta { display: flex; flex-direction: column; gap: 2px; font-size: var(--hd-font-size-small); color: var(--hd-c-fg-secondary); min-width: 0; max-width: 100%; }
+.sha code { word-break: break-all; }
+.prose :is(p, ul, ol) { margin: 0 0 1em; }
+.prose ul { list-style: disc; padding-left: 1.4em; }
+.prose ol { padding-left: 1.4em; }
+.prose pre { overflow-x: auto; background: var(--hd-c-surface-raised); padding: 12px; border-radius: 8px; }
+.details { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+.details dt { color: var(--hd-c-fg-secondary); }
+.details dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.shots { display: flex; gap: 12px; overflow-x: auto; }
+.shots img { height: 320px; width: auto; border-radius: 8px; }
+
+@media (min-width: 640px) {
+  .cat-grid { grid-template-columns: repeat(3, 1fr); }
+  .app-list { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding: 48px 40px; }
+  .hero h1 { font-size: 3rem; }
+  .downloads li { flex-direction: row; align-items: center; gap: 16px; }
+}
+@media (min-width: 1000px) {
+  .cat-grid { grid-template-columns: repeat(5, 1fr); }
+  .app-list { grid-template-columns: repeat(3, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }

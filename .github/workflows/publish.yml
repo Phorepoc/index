@@ -1,5 +1,6 @@
 # Builds index.json (each approved release resolved on GitHub: asset URL, size, SHA-256) and publishes it on GitHub
-# Pages: https://phorepoc.github.io/index/index.json, plus the listings' icons and screenshots. Runs on every merge to
+# Pages: https://phorepoc.github.io/index/index.json, plus the listings' icons and screenshots, the category icons, and the
+# web store (web/, Vue + Quasar, every page prerendered from index.json) at https://phorepoc.github.io/index/. Runs on every merge to
 # main and daily, so "latest" listings pick up new releases.
 name: publish
 on:
@@ -11,6 +12,7 @@ on:
 permissions:
   contents: read
   pages: write
+  packages: read
   id-token: write
 concurrency:
   group: pages
@@ -28,7 +30,20 @@ jobs:
           mkdir -p site
           python3 tools/build_index.py --out site/index.json
           cp -r listings site/listings
+          cp -r categories site/categories
           cp schema/listing.schema.json site/
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build the web store (prerendered from site/index.json) into the same site
+        env:
+          GITHUB_PACKAGES_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INDEX_JSON: ${{ github.workspace }}/site/index.json
+        run: |
+          cd web
+          npm ci || npm install
+          npm run build
+          cp -r dist/. ../site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
