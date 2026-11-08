@@ -1,0 +1,23 @@
+{
+  "id": "qt-symbian-x32",
+  "name": "Qt 4.8 (PC)",
+  "category": "library",
+  "tags": [
+    "library",
+    "developer"
+  ],
+  "license": "LGPL-2.1-only WITH Qt-LGPL-exception-1.1",
+  "homepage": "https://github.com/Phorepoc/qt-symbian",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/qt-symbian",
+    "asset": "^qt-symbian-x32[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "x32"
+    ]
+  }
+}
