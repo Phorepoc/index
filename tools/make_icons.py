@@ -14,7 +14,8 @@ A = icongen.ACCENTS
 ICONS = {
     "webkit-symbian-arm": ("cog", A["browser"]), "webkit-symbian-x32": ("cog", A["browser"]),
     "netsurf-symbian-arm": ("compass", A["browser"]), "netsurf-symbian-x32": ("compass", A["browser"]),
-    "qt-symbian-arm": ("cube", A["maps"]),
+    "qt-symbian-arm": ("cube", A["maps"]), "qt-symbian-x32": ("cube", A["maps"]),
+    "orbit-ui-x32": ("globe", A["photos"]),
     "codecpack-arm": ("play", A["videos"]), "codecpack-x32": ("play", A["videos"]),
     "screenrec-a64-arm": ("record", A["videos"]),
 }

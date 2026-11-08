@@ -1,0 +1,23 @@
+{
+  "id": "orbit-ui-x32",
+  "name": "Orbit (PC)",
+  "category": "system",
+  "tags": [
+    "system",
+    "theme"
+  ],
+  "license": "LGPL-2.1-only WITH Nokia-Qt-LGPL-exception-1.1 AND EPL-1.0",
+  "homepage": "https://github.com/Phorepoc/orbit-ui",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/orbit-ui",
+    "asset": "^orbit-ui-x32[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "x32"
+    ]
+  }
+}
