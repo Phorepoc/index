@@ -1,0 +1,23 @@
+{
+  "id": "proteus-x32",
+  "name": "Proteus (ARM apps on the PC)",
+  "category": "system",
+  "tags": [
+    "system",
+    "tool"
+  ],
+  "license": "Apache-2.0 AND 0BSD AND MIT AND BSD-3-Clause AND GPL-3.0-or-later WITH GCC-exception-3.1",
+  "homepage": "https://github.com/Phorepoc/proteus",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/proteus",
+    "asset": "^proteus\\.sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "x32"
+    ]
+  }
+}
