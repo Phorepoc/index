@@ -1,0 +1,23 @@
+{
+  "id": "dav-sync-arm",
+  "name": "phedav (contacts and calendar sync)",
+  "category": "tool",
+  "tags": [
+    "productivity",
+    "network"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/Phorepoc/dav-sync",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/dav-sync",
+    "asset": "^dav-sync-arm[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "arm"
+    ]
+  }
+}

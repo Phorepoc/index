@@ -18,6 +18,8 @@ ICONS = {
     "orbit-ui-x32": ("globe", A["photos"]),
     "codecpack-arm": ("play", A["videos"]), "codecpack-x32": ("play", A["videos"]),
     "screenrec-a64-arm": ("record", A["videos"]),
+    "dav-sync-arm": ("sync", A["contacts"]), "dav-sync-x32": ("sync", A["contacts"]),
+    "tailscale-symbian-arm": ("tunnel", A["conversations"]), "tailscale-symbian-x32": ("tunnel", A["conversations"]),
 }
 
 # One icon per tag of the fixed vocabulary (CONTRIBUTING.md): categories/<tag, spaces as dashes>.png (128 x 128) + .svg.

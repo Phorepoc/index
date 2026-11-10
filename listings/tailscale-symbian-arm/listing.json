@@ -1,0 +1,23 @@
+{
+  "id": "tailscale-symbian-arm",
+  "name": "phetaild (tailnet client)",
+  "category": "tool",
+  "tags": [
+    "network",
+    "security"
+  ],
+  "license": "Apache-2.0 AND BSD-3-Clause AND (BSD-2-Clause OR CC0-1.0) AND MIT",
+  "homepage": "https://github.com/Phorepoc/tailscale-symbian",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/tailscale-symbian",
+    "asset": "^tailscale-symbian-arm[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "arm"
+    ]
+  }
+}
