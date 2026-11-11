@@ -45,7 +45,11 @@
    - `releases`: the tags you ask to be approved, or `"latest"` (the newest non-prerelease, picked up daily).
    - `compatibility.arch`: `arm` (phones), `x32` (PCs and virtual machines). Optional: `boards` (e.g. `["pinephone"]`),
      `min_core`, `legacy` (also runs on stock Symbian OS 9.x phones), `needs_platsec_hack` (installs only on a phone
-     whose platform security is patched).
+     whose platform security is patched). `min_core` is the oldest core the item runs on, written as that core commit's
+     UTC committer time, `YYYY.MM.DD.HHMMSS` (`TZ=UTC git log -1 --format=%cd --date=format-local:%Y.%m.%d.%H%M%S <commit>`
+     in core). Every image states its own value as `core=` in `z:\resource\phorepoc\device.txt`, and Catalogue refuses
+     an item whose `min_core` is newer ("Needs a newer system"). Set it when the package needs a core feature, for
+     example the x32 loader's PC-relative imports (core fbeb597, `2026.11.10.165459`).
    - `requires`: ids of listings that must be installed first.
 
    **Tag vocabulary** (a fixed list; a new word is a change to `schema/listing.schema.json` by a maintainer):

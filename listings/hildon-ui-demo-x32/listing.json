@@ -19,7 +19,8 @@
   "compatibility": {
     "arch": [
       "x32"
-    ]
+    ],
+    "min_core": "2026.11.10.165459"
   },
   "requires": [
     "hildon-ui-x32"
