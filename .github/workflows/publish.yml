@@ -1,13 +1,14 @@
 # Builds index.json (each approved release resolved on GitHub: asset URL, size, SHA-256) and publishes it on GitHub
 # Pages: https://phorepoc.github.io/index/index.json, plus the listings' icons and screenshots, the category icons, and the
 # web store (web/, Vue + Quasar, every page prerendered from index.json) at https://phorepoc.github.io/index/. Runs on every merge to
-# main and daily, so "latest" listings pick up new releases.
+# main and every hour, so "latest" listings pick up a new release within the hour (daily left a phone on a release
+# a day old: the scheduled run starts hours late, and the 16:49 index still gave NetSurf v0.1.0 after v0.3.0 shipped).
 name: publish
 on:
   push:
     branches: [main]
   schedule:
-    - cron: "17 4 * * *"
+    - cron: "17 * * * *"
   workflow_dispatch:
 permissions:
   contents: read
