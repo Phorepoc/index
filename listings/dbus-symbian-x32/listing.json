@@ -1,0 +1,26 @@
+{
+  "id": "dbus-symbian-x32",
+  "name": "D-Bus (PC)",
+  "category": "library",
+  "tags": [
+    "library",
+    "system"
+  ],
+  "license": "BSD-2-Clause AND (AFL-2.1 OR GPL-2.0-or-later)",
+  "homepage": "https://github.com/Phorepoc/dbus-symbian",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/dbus-symbian",
+    "asset": "^dbus-symbian-x32[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "x32"
+    ]
+  },
+  "requires": [
+    "glib-symbian-x32"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "hildon-ui-demo-x32",
+  "name": "Hildon demo (PC)",
+  "category": "app",
+  "tags": [
+    "developer",
+    "graphics"
+  ],
+  "license": "BSD-2-Clause",
+  "homepage": "https://github.com/Phorepoc/hildon-ui",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/hildon-ui",
+    "asset": "^hildon-ui-demo-x32[.]sis$",
+    "text": "catalogue/demo"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "x32"
+    ]
+  },
+  "requires": [
+    "hildon-ui-x32"
+  ]
+}

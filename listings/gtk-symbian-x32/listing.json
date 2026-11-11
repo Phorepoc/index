@@ -1,0 +1,26 @@
+{
+  "id": "gtk-symbian-x32",
+  "name": "GTK 2 (PC)",
+  "category": "library",
+  "tags": [
+    "library",
+    "graphics"
+  ],
+  "license": "BSD-2-Clause AND LGPL-2.1-or-later AND MIT AND FTL",
+  "homepage": "https://github.com/Phorepoc/gtk-symbian",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/gtk-symbian",
+    "asset": "^gtk-symbian-x32[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "x32"
+    ]
+  },
+  "requires": [
+    "glib-symbian-x32"
+  ]
+}

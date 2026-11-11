@@ -1,0 +1,23 @@
+{
+  "id": "glib-symbian-x32",
+  "name": "GLib (PC)",
+  "category": "library",
+  "tags": [
+    "library",
+    "developer"
+  ],
+  "license": "BSD-2-Clause AND LGPL-2.1-or-later AND MIT",
+  "homepage": "https://github.com/Phorepoc/glib-symbian",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/glib-symbian",
+    "asset": "^glib-symbian-x32[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "x32"
+    ]
+  }
+}

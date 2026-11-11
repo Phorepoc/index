@@ -245,6 +245,21 @@ def main() -> int:
             errors.append(str(e))
         except OSError as e:
             errors.append(f"{lid}: {e}")
+    # "requires" names other listings. Offline (the checks) an unknown id is an error; online a listing whose requirement
+    # was left out (no release yet) is left out too, until it can be installed with everything it needs
+    known = {lid for lid in os.listdir(LISTINGS) if os.path.isdir(os.path.join(LISTINGS, lid))} if os.path.isdir(LISTINGS) else set()
+    for i in items:
+        for r in i.get("requires", []):
+            if r not in known:
+                errors.append(f"{i['id']}: requires {r!r}, which is not a listing here")
+    while True:
+        ids = {i["id"] for i in items}
+        drop = [i for i in items if any(r not in ids for r in i.get("requires", []))]
+        if not drop:
+            break
+        for i in drop:
+            print("WARNING", f"{i['id']}: left out: a listing it requires is not in the index")
+            items.remove(i)
     for e in errors:
         print("ERROR", e)
     if errors:

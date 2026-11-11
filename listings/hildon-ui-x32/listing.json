@@ -1,0 +1,28 @@
+{
+  "id": "hildon-ui-x32",
+  "name": "Hildon (PC)",
+  "category": "library",
+  "tags": [
+    "library",
+    "graphics"
+  ],
+  "license": "BSD-2-Clause AND LGPL-2.1-or-later",
+  "homepage": "https://github.com/Phorepoc/hildon-ui",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/hildon-ui",
+    "asset": "^hildon-ui-x32[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "x32"
+    ]
+  },
+  "requires": [
+    "glib-symbian-x32",
+    "gtk-symbian-x32",
+    "dbus-symbian-x32"
+  ]
+}
