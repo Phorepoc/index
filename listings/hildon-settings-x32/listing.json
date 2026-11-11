@@ -1,0 +1,27 @@
+{
+  "id": "hildon-settings-x32",
+  "name": "Hildon settings (PC)",
+  "category": "app",
+  "tags": [
+    "system"
+  ],
+  "license": "BSD-2-Clause AND LGPL-2.1-only",
+  "homepage": "https://github.com/Phorepoc/hildon-ui",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/hildon-ui",
+    "asset": "^hildon-settings-x32[.]sis$",
+    "text": "catalogue/settings"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "x32"
+    ],
+    "min_core": "2026.11.10.165459"
+  },
+  "requires": [
+    "hildon-ui-x32"
+  ]
+}
