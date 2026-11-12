@@ -2,7 +2,7 @@
 import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { QInput } from 'quasar'
-import { itemById, categoryBySlug, banner } from './data.js'
+import { itemById, categoryBySlug, banner, categories, slug } from './data.js'
 import { pageMeta } from './meta.js'
 
 const base = import.meta.env.BASE_URL
@@ -33,6 +33,15 @@ watch(() => route.fullPath, () => {
         <q-input v-model="q" class="hd-theme-light" :dark="false" type="search" dense outlined label="Search" aria-label="Search the catalogue" clearable />
       </form>
     </div>
+    <nav class="cats" aria-label="Categories">
+      <ul class="cats-in">
+        <li v-for="c in categories" :key="c.tag">
+          <router-link :to="`/category/${slug(c.tag)}/`" class="cat-link" active-class="on">
+            <img :src="c.icon_url" alt="" width="24" height="24"><span>{{ c.name }}</span>
+          </router-link>
+        </li>
+      </ul>
+    </nav>
   </header>
   <main id="main">
     <router-view />

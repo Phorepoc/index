@@ -68,7 +68,7 @@ function makeApps() {
 }
 
 export const apps = makeApps()
-export const NEW_COUNT = 8
+export const NEW_COUNT = 3   // one row on a desktop
 export const newApps = apps.slice(0, NEW_COUNT)
 export const self = apps.find((a) => a.id === 'catalogue')
 
