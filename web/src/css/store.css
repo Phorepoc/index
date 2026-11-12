@@ -96,10 +96,11 @@ a.card:hover { background: var(--hd-c-surface-raised); }
   .app-list { grid-template-columns: repeat(3, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
-/* a description quoting the project's own words: an accent bar, the credit line under it in the secondary colour */
-.md blockquote { margin: 0 0 16px; padding: 2px 0 2px 16px; border-left: 3px solid var(--hd-c-focus); }
-.md blockquote p:last-child { color: var(--hd-c-fg-secondary); margin-bottom: 0; }
-.md blockquote p:only-child { color: inherit; }
+/* (not ".md": Quasar's visibility class of that name hides the element outside the md breakpoint, so phones showed no text)
+ * a description quoting the project's own words: an accent bar, the credit line under it in the secondary colour */
+.desc blockquote { margin: 0 0 16px; padding: 2px 0 2px 16px; border-left: 3px solid var(--hd-c-focus); }
+.desc blockquote p:last-child { color: var(--hd-c-fg-secondary); margin-bottom: 0; }
+.desc blockquote p:only-child { color: inherit; }
 
 /* home: the hero (logo, name, the Catalogue download), the featured carousel, new apps with "See all", the open-source call */
 .hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 4px; }

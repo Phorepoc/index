@@ -22,6 +22,7 @@ ICONS = {
     "tailscale-symbian-arm": ("tunnel", A["conversations"]), "tailscale-symbian-x32": ("tunnel", A["conversations"]),
     "glib-symbian-x32": ("cube", A["notes"]), "gtk-symbian-x32": ("window", A["photos"]), "dbus-symbian-x32": ("nodes", A["notes"]),
     "hildon-ui-x32": ("panes", A["calendar"]), "hildon-ui-demo-x32": ("window", A["calendar"]), "hildon-theme-alpha-x32": ("brush", A["calendar"]),
+    "proteus-x32": ("screenchip", A["calculator"]),
     "catalogue-arm": ("download", A["store"]), "catalogue-x32": ("download", A["store"]),
     "hildon-clock-widget-x32": ("clock", A["clock"]), "hildon-date-widget-x32": ("calendar", A["calendar"]),
     "hildon-settings-x32": ("sliders", A["contacts"]),
@@ -48,10 +49,13 @@ CAT_GLYPHS = {
              ("line", [(8.5, 16), (12.5, 16)])],
     "sliders": [("line", [(4, 7), (20, 7)]), ("line", [(4, 17), (20, 17)]), ("circle", 9, 7, 2.4), ("circle", 15, 17, 2.4)],
 }
-# listing glyphs beyond icongen's set: a toolkit window (GTK, the Hildon demo), a window split in panes (the Hildon UI
+# listing glyphs beyond icongen's set: an ARM chip on a PC screen (Proteus), a toolkit window (GTK, the Hildon demo), a window split in panes (the Hildon UI
 # framework); the category glyphs above are usable for listings too (nodes = D-Bus, brush = a theme)
 EXTRA_GLYPHS = {
     "window": [("rrect", 3, 4, 18, 16, 2.5), ("line", [(3.5, 9), (20.5, 9)]), ("dot", 6.5, 6.5), ("dot", 9.5, 6.5)],
+    "screenchip": [("rrect", 2.5, 3.5, 19, 13, 2), ("line", [(9, 20.5), (15, 20.5)]), ("line", [(12, 16.5), (12, 20.5)]),
+                   ("rrect", 9, 7, 6, 6, 1), ("line", [(10.5, 5), (10.5, 7)]), ("line", [(13.5, 5), (13.5, 7)]),
+                   ("line", [(10.5, 13), (10.5, 15)]), ("line", [(13.5, 13), (13.5, 15)])],
     "panes": [("rrect", 3, 4, 18, 16, 2.5), ("line", [(9.5, 4.5), (9.5, 19.5)]), ("line", [(12.5, 9), (17.5, 9)]),
               ("line", [(12.5, 13), (17.5, 13)])],
 }

@@ -9,15 +9,15 @@ import index from '@index'
 
 export const SITE = 'Phorepoc Catalogue'
 export const generated = index.generated
-export const banner = { title: SITE, text: 'Apps, codecs, engines and tools for Phorepoc phones and PCs. All open source.' }
+export const banner = { title: SITE, text: 'Apps, codecs, engines and tools for Phorepoc, on ARM and x32. All open source.' }
 
 // architectures, in the order the download menu offers them (64-bit userspace comes later)
 export const ARCHES = ['arm', 'x32', 'aarch64', 'x64']
 const ARCH_INFO = {
-  arm: { label: 'ARM', note: 'Phones (32-bit ARM)' },
-  x32: { label: 'x32', note: 'PCs and VirtualBox (amd64, 32-bit pointers)' },
-  aarch64: { label: 'AArch64', note: '64-bit ARM' },
-  x64: { label: 'x64', note: '64-bit PC' },
+  arm: { label: 'ARM', note: 'ARM (32-bit)' },
+  x32: { label: 'x32', note: 'x32 (amd64, 32-bit pointers)' },
+  aarch64: { label: 'AArch64', note: 'AArch64 (64-bit ARM)' },
+  x64: { label: 'x64', note: 'x64 (amd64, 64-bit)' },
 }
 export const archLabelOf = (a) => (ARCH_INFO[a] ? ARCH_INFO[a].label : a)
 export const archNoteOf = (a) => (ARCH_INFO[a] ? ARCH_INFO[a].note : '')
@@ -57,6 +57,7 @@ function makeApps() {
       tags: first.tags || [], license: first.license, homepage: first.homepage, authors: first.authors,
       source: first.source, icon_url: first.icon_url, screenshots,
       legacy: builds.some((b) => b.compatibility.legacy),
+      featured: builds.some((b) => b.featured === true),
       requires: [...new Set(builds.flatMap((b) => b.requires || []).map(groupOfId))],
       arches: builds.map(archOf),
       packages,
@@ -71,11 +72,10 @@ export const NEW_COUNT = 8
 export const newApps = apps.slice(0, NEW_COUNT)
 export const self = apps.find((a) => a.id === 'catalogue')
 
-// featured on the home page: the apps people come for, when the index has them (else the newest with screenshots)
-const FEATURED = ['netsurf-symbian', 'webkit-symbian', 'hildon-settings', 'hildon-clock-widget', 'qt-symbian', 'hildon-date-widget']
+// featured on the home page: the apps whose listings say "featured": true (newest first); none = the newest with screenshots
 export const featured = (() => {
-  const f = FEATURED.map((id) => apps.find((a) => a.id === id)).filter(Boolean)
-  return f.length >= 3 ? f : apps.filter((a) => a.screenshots.length).slice(0, 6)
+  const f = apps.filter((a) => a.featured)
+  return f.length ? f : apps.filter((a) => a.screenshots.length).slice(0, 6)
 })()
 
 export const slug = (tag) => tag.replace(/ /g, '-')

@@ -41,7 +41,7 @@ const date = (s) => (s ? s.slice(0, 10) : '')
       </ul>
       <p v-else class="muted">No approved release is available yet.</p>
       <h3>How to install</h3>
-      <p>Copy the <code>.sis</code> file to the phone and open it, or install this app from Catalogue on the phone.</p>
+      <p>Copy the <code>.sis</code> file to the device and open it, or install this app from Catalogue on the device.</p>
     </section>
 
     <section v-if="item.screenshots.length" class="panel" aria-labelledby="shots">
@@ -49,9 +49,9 @@ const date = (s) => (s ? s.slice(0, 10) : '')
       <div class="shots"><img v-for="(s, n) in item.screenshots" :key="s" :src="s" :alt="`${item.name}, screenshot ${n + 1}`" loading="lazy"></div>
     </section>
 
-    <section v-if="html" class="panel prose" aria-labelledby="about">
+    <section v-if="html.trim()" class="panel prose" aria-labelledby="about">
       <h2 id="about">About</h2>
-      <div class="md" v-html="html" />
+      <div class="desc" v-html="html" />
     </section>
 
     <section class="panel" aria-labelledby="det">

@@ -38,7 +38,7 @@ watch(() => route.fullPath, () => {
     <router-view />
   </main>
   <footer class="foot">
-    <p>Phorepoc Catalogue is the app source for Phorepoc phones. Everything listed is open source, and each item links to its source.</p>
+    <p>Phorepoc Catalogue is the app source for Phorepoc. Everything listed is open source, and each item links to its source.</p>
     <p><router-link to="/apps/">All apps</router-link> &middot; <a href="https://github.com/Phorepoc/index">Add or update a listing</a> &middot; <a href="/index/index.json">index.json</a></p>
   </footer>
 </template>

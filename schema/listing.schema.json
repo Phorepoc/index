@@ -52,6 +52,7 @@
                                "type": "boolean"}
       }
     },
+    "featured": {"description": "Shown in the home page's Featured carousel (set by a maintainer; one listing of the group is enough)", "type": "boolean"},
     "requires": {"description": "Ids of other listings that must be installed first",
                  "type": "array", "items": {"type": "string"}},
     "tags": {

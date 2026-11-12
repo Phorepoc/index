@@ -23,8 +23,8 @@ function page(dir) {
       <DownloadMenu :app="self" label="Download Catalogue" />
       <router-link :to="`/app/${self.id}/`" class="btn-outline">About the app</router-link>
     </div>
-    <p v-if="self" class="hero-note">Catalogue is built into Phorepoc. The SIS file is for images built without it and for
-      older Symbian^3 phones, and Catalogue keeps itself up to date from this list.</p>
+    <p v-if="self" class="hero-note">Catalogue is built into Phorepoc. The SIS file is for systems built without it, and the
+      ARM one also installs on older Symbian^3 systems. Catalogue keeps itself up to date from this list.</p>
   </section>
 
   <section v-if="featured.length" class="featured" aria-labelledby="feat">
