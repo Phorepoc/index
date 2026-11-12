@@ -297,4 +297,9 @@ GLYPHS = {
                ("line", [(2.5, 20), (21.5, 20)])],
     # a prompt: the terminal
     "prompt": [("rrect", 3, 4, 18, 16, 2.5), ("line", [(7, 9.5), (10.5, 12.5), (7, 15.5)]), ("line", [(12.5, 15.5), (17, 15.5)])],
+    # a calendar sheet: the page, the band under its two rings, the day as a dot grid
+    "calendar": [("rrect", 3, 4.5, 18, 16.5, 2.5), ("line", [(3.5, 9.5), (20.5, 9.5)]), ("line", [(8, 2.5), (8, 6.5)]),
+                 ("line", [(16, 2.5), (16, 6.5)]), ("dot", 8, 13.5), ("dot", 12, 13.5), ("dot", 16, 13.5), ("dot", 8, 17), ("dot", 12, 17)],
+    "clock": [("circle", 12, 12, 9), ("line", [(12, 7), (12, 12), (15.5, 14)])],
+    "sliders": [("line", [(4, 7), (20, 7)]), ("line", [(4, 17), (20, 17)]), ("circle", 9, 7, 2.4), ("circle", 15, 17, 2.4)],
 }

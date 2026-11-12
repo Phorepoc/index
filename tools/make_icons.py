@@ -22,6 +22,8 @@ ICONS = {
     "tailscale-symbian-arm": ("tunnel", A["conversations"]), "tailscale-symbian-x32": ("tunnel", A["conversations"]),
     "glib-symbian-x32": ("cube", A["notes"]), "gtk-symbian-x32": ("cube", A["photos"]), "dbus-symbian-x32": ("sync", A["notes"]),
     "hildon-ui-x32": ("cube", A["calendar"]), "hildon-ui-demo-x32": ("play", A["calendar"]), "hildon-theme-alpha-x32": ("globe", A["calendar"]),
+    "hildon-clock-widget-x32": ("clock", A["clock"]), "hildon-date-widget-x32": ("calendar", A["calendar"]),
+    "hildon-settings-x32": ("sliders", A["contacts"]),
 }
 
 # One icon per tag of the fixed vocabulary (CONTRIBUTING.md): categories/<tag, spaces as dashes>.png (128 x 128) + .svg.
