@@ -61,6 +61,7 @@
       "items": {"enum": ["browser engine", "library", "codec", "driver", "game", "theme", "tool", "media", "web", "graphics", "network", "security", "productivity", "developer", "system"]}
     },
     "icon": {"description": "File in the listing folder (PNG, square, >= 128 px; the SVG source may sit next to it as icon.svg)", "type": "string"},
+    "icon_credit": {"description": "Whose the icon is and under which terms, when it is a project's own logo (one line; LOGOS.md has the sources)", "type": "string", "maxLength": 300},
     "screenshots": {"description": "Files in the listing folder", "type": "array", "items": {"type": "string"}}
   }
 }

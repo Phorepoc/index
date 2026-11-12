@@ -55,7 +55,7 @@ function makeApps() {
     apps.push({
       id, name: first.name, summary: first.summary, description: first.description, category: first.category,
       tags: first.tags || [], license: first.license, homepage: first.homepage, authors: first.authors,
-      source: first.source, icon_url: first.icon_url, screenshots,
+      source: first.source, icon_url: first.icon_url, icon_credit: first.icon_credit, screenshots,
       legacy: builds.some((b) => b.compatibility.legacy),
       featured: builds.some((b) => b.featured === true),
       requires: [...new Set(builds.flatMap((b) => b.requires || []).map(groupOfId))],

@@ -10,6 +10,7 @@
   "license": "LGPL-2.1-only WITH Qt-LGPL-exception-1.1",
   "homepage": "https://github.com/Phorepoc/qt-symbian",
   "icon": "icon.png",
+  "icon_credit": "The Qt logo, unmodified (scaled), (c) The Qt Company; Qt is a registered trademark of The Qt Company Ltd. and its subsidiaries.",
   "source": {
     "type": "github",
     "repo": "Phorepoc/qt-symbian",

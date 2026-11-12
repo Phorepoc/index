@@ -62,6 +62,7 @@ const date = (s) => (s ? s.slice(0, 10) : '')
         <template v-if="item.legacy"><dt>Compatibility</dt><dd>The ARM package also runs on older Symbian^3 phones<template v-if="hack">, on one whose installation check is lifted (or with the package signed)</template></dd></template>
         <template v-if="item.requires && item.requires.length"><dt>Needs first</dt><dd><template v-for="(r, n) in item.requires" :key="r"><router-link :to="`/app/${r}/`">{{ r }}</router-link><template v-if="n < item.requires.length - 1">, </template></template></dd></template>
         <template v-if="item.authors && item.authors.length"><dt>Authors</dt><dd>{{ item.authors.join(', ') }}</dd></template>
+        <template v-if="item.icon_credit"><dt>Logo</dt><dd>{{ item.icon_credit }}</dd></template>
         <dt>Source</dt><dd><a :href="`https://github.com/${item.source.repo}`">github.com/{{ item.source.repo }}</a></dd>
         <template v-if="item.homepage"><dt>Homepage</dt><dd><a :href="item.homepage">{{ item.homepage }}</a></dd></template>
       </dl>

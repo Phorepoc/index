@@ -83,7 +83,9 @@
    is `["codec", "media"]`. Catalogue also shows each item under its `category`, so a listing without tags still appears
    in the matching group.
 
-   **Icon.** Every listing should have an `icon.png` (square, 256 x 256 is ideal, at least 128 px) and, next to it, the
+   **Icon.** Every listing should have an `icon.png` (square, 256 x 256 is ideal, at least 128 px). If you port a project
+   that has an official logo, use that logo unmodified (scaled onto a transparent square), when its owner's terms allow
+   it: put the credit and terms in `icon_credit` and add a row to [LOGOS.md](LOGOS.md). Otherwise add, next to the PNG, the
    `icon.svg` it came from. Draw icons in the [Etesian design language](https://language.etesian-design.com):
    a squircle tile (|x|^2.8 + |y|^2.8 = 1, not a rounded rectangle), one accent colour from the language's table,
    a glyph on a 24 x 24 grid drawn with a single 2 px round stroke, outline only, off-white, lit from above. Do not

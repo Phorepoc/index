@@ -9,6 +9,7 @@
   "license": "GPL-3.0-only AND CC-BY-SA-2.5",
   "homepage": "https://github.com/Phorepoc/hildon-theme-alpha",
   "icon": "icon.png",
+  "icon_credit": "The Maemo Leste logo from maemo-leste.github.io, unmodified (scaled).",
   "source": {
     "type": "github",
     "repo": "Phorepoc/hildon-theme-alpha",

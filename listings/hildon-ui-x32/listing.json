@@ -10,6 +10,7 @@
   "license": "BSD-2-Clause AND LGPL-2.1-or-later",
   "homepage": "https://github.com/Phorepoc/hildon-ui",
   "icon": "icon.png",
+  "icon_credit": "The Maemo Leste logo from maemo-leste.github.io, unmodified (scaled).",
   "source": {
     "type": "github",
     "repo": "Phorepoc/hildon-ui",

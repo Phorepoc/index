@@ -11,17 +11,14 @@ import icongen  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 A = icongen.ACCENTS
+# Our own icons only: listings that show their project's official logo (LOGOS.md) are not drawn here
 ICONS = {
     "webkit-symbian-arm": ("cog", A["browser"]), "webkit-symbian-x32": ("cog", A["browser"]),
-    "netsurf-symbian-arm": ("compass", A["browser"]), "netsurf-symbian-x32": ("compass", A["browser"]),
-    "qt-symbian-arm": ("cube", A["maps"]), "qt-symbian-x32": ("cube", A["maps"]),
     "orbit-ui-x32": ("globe", A["photos"]),
-    "codecpack-arm": ("play", A["videos"]), "codecpack-x32": ("play", A["videos"]),
     "screenrec-a64-arm": ("record", A["videos"]),
     "dav-sync-arm": ("sync", A["contacts"]), "dav-sync-x32": ("sync", A["contacts"]),
     "tailscale-symbian-arm": ("tunnel", A["conversations"]), "tailscale-symbian-x32": ("tunnel", A["conversations"]),
-    "glib-symbian-x32": ("cube", A["notes"]), "gtk-symbian-x32": ("window", A["photos"]), "dbus-symbian-x32": ("nodes", A["notes"]),
-    "hildon-ui-x32": ("panes", A["calendar"]), "hildon-ui-demo-x32": ("window", A["calendar"]), "hildon-theme-alpha-x32": ("brush", A["calendar"]),
+    "glib-symbian-x32": ("cube", A["notes"]), "dbus-symbian-x32": ("nodes", A["notes"]), "hildon-ui-demo-x32": ("window", A["calendar"]),
     "proteus-x32": ("screenchip", A["calculator"]),
     "catalogue-arm": ("download", A["store"]), "catalogue-x32": ("download", A["store"]),
     "hildon-clock-widget-x32": ("clock", A["clock"]), "hildon-date-widget-x32": ("calendar", A["calendar"]),

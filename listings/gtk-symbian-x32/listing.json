@@ -10,6 +10,7 @@
   "license": "BSD-2-Clause AND LGPL-2.1-or-later AND MIT AND FTL",
   "homepage": "https://github.com/Phorepoc/gtk-symbian",
   "icon": "icon.png",
+  "icon_credit": "The GTK logo by Andreas Nilsson, CC BY-SA 3.0, unmodified (scaled), from gtk.org.",
   "source": {
     "type": "github",
     "repo": "Phorepoc/gtk-symbian",
