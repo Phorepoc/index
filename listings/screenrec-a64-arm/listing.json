@@ -1,5 +1,6 @@
 {
   "id": "screenrec-a64-arm",
+  "group": "screenrec-a64",
   "name": "Screen recorder (A64)",
   "category": "codec",
   "tags": [

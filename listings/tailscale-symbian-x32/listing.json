@@ -1,6 +1,7 @@
 {
   "id": "tailscale-symbian-x32",
-  "name": "phetaild (tailnet client) (PC)",
+  "group": "tailscale-symbian",
+  "name": "phetaild (tailnet client)",
   "category": "tool",
   "tags": [
     "network",

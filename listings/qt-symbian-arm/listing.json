@@ -1,6 +1,7 @@
 {
   "id": "qt-symbian-arm",
-  "name": "Qt 4.8 (phones)",
+  "group": "qt-symbian",
+  "name": "Qt 4.8",
   "category": "library",
   "tags": [
     "library",
@@ -19,5 +20,8 @@
     "arch": [
       "arm"
     ]
-  }
+  },
+  "screenshots": [
+    "screenshot-1.png"
+  ]
 }

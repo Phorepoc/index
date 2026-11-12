@@ -1,6 +1,7 @@
 {
   "id": "webkit-symbian-x32",
-  "name": "WebKit web engine (PC)",
+  "group": "webkit-symbian",
+  "name": "WebKit web engine",
   "category": "library",
   "tags": [
     "browser engine",
@@ -19,5 +20,8 @@
     "arch": [
       "x32"
     ]
-  }
+  },
+  "screenshots": [
+    "screenshot-1.png"
+  ]
 }

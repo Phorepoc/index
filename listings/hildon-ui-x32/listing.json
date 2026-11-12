@@ -1,6 +1,7 @@
 {
   "id": "hildon-ui-x32",
-  "name": "Hildon (PC)",
+  "group": "hildon-ui",
+  "name": "Hildon",
   "category": "library",
   "tags": [
     "library",

@@ -1,6 +1,7 @@
 {
   "id": "netsurf-symbian-x32",
-  "name": "NetSurf web engine (PC)",
+  "group": "netsurf-symbian",
+  "name": "NetSurf web engine",
   "category": "library",
   "tags": [
     "browser engine",
@@ -19,5 +20,8 @@
     "arch": [
       "x32"
     ]
-  }
+  },
+  "screenshots": [
+    "screenshot-1.png"
+  ]
 }

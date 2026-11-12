@@ -124,6 +124,23 @@ class Repository(unittest.TestCase):
                 self.assertGreaterEqual(w, 128)
 
 
+    def test_groups(self):
+        """listings of one app (a group) share its name and category and differ in architecture"""
+        schema = json.load(open(build_index.SCHEMA, encoding="utf-8"))
+        groups = {}
+        for lid in sorted(d for d in os.listdir(build_index.LISTINGS) if os.path.isdir(os.path.join(build_index.LISTINGS, d))):
+            item = build_index.load_listing(lid, schema)
+            groups.setdefault(item.get("group", lid), []).append(item)
+        for g, items in groups.items():
+            with self.subTest(g):
+                self.assertEqual(len({i["name"] for i in items}), 1, "names differ")
+                self.assertEqual(len({i["category"] for i in items}), 1, "categories differ")
+                arches = [a for i in items for a in i["compatibility"]["arch"]]
+                self.assertEqual(len(arches), len(set(arches)), "two listings for one architecture")
+                for i in items:
+                    self.assertNotRegex(i["name"], r"\((PC|phones)\)$")
+
+
 class AuthorText(unittest.TestCase):
     """the summary and description come from the item's repo: the newest approved release, else the default branch"""
     LISTING = dict(GOOD, source={"type": "github", "repo": "someone/hello"})

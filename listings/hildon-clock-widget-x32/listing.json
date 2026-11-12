@@ -1,6 +1,7 @@
 {
   "id": "hildon-clock-widget-x32",
-  "name": "Hildon clock widget (PC)",
+  "group": "hildon-clock-widget",
+  "name": "Hildon clock widget",
   "category": "app",
   "tags": [
     "productivity"
@@ -23,5 +24,8 @@
   },
   "requires": [
     "hildon-ui-x32"
+  ],
+  "screenshots": [
+    "screenshot-1.png"
   ]
 }

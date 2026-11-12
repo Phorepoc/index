@@ -1,6 +1,7 @@
 {
   "id": "qt-symbian-x32",
-  "name": "Qt 4.8 (PC)",
+  "group": "qt-symbian",
+  "name": "Qt 4.8",
   "category": "library",
   "tags": [
     "library",
@@ -19,5 +20,8 @@
     "arch": [
       "x32"
     ]
-  }
+  },
+  "screenshots": [
+    "screenshot-1.png"
+  ]
 }

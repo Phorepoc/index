@@ -1,0 +1,29 @@
+{
+  "id": "catalogue-arm",
+  "group": "catalogue",
+  "name": "Catalogue",
+  "category": "app",
+  "tags": [
+    "system",
+    "tool"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/Phorepoc/catalogue",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/catalogue",
+    "asset": "^catalogue-arm[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "arm"
+    ],
+    "legacy": true,
+    "needs_platsec_hack": true
+  },
+  "screenshots": [
+    "screenshot-1.png"
+  ]
+}

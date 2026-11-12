@@ -1,6 +1,7 @@
 {
   "id": "codecpack-x32",
-  "name": "Codec pack (PC)",
+  "group": "codecpack",
+  "name": "Codec pack",
   "category": "codec",
   "tags": [
     "codec",

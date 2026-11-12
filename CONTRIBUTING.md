@@ -18,7 +18,7 @@
    listings/hello/
      listing.json     required
      icon.png         optional: square, at least 128 px
-     shot1.png ...    optional: screenshots
+     shot1.png ...    optional: screenshots (PNG, about 360 px wide: your own app running, nothing of anyone else's)
    ```
 
 3. `listing.json`:
@@ -26,6 +26,7 @@
    ```json
    {
      "id": "hello",
+     "group": "hello",
      "name": "Hello",
      "category": "app",
      "license": "EPL-1.0",
@@ -39,11 +40,17 @@
    }
    ```
 
+   - `group` and `name`: one listing is one architecture's build of your app. Ship ARM and x32 packages as two listings
+     (`hello-arm` and `hello-x32`, each with its own `asset` and `arch`) that share a `group` (the app's id on the web
+     page, default: the listing's id) and the same `name`, with no "(PC)" or "(phones)" in it. The website shows one
+     card per group, with a Download menu to pick the architecture; the phone shows the listing for its own
+     architecture.
    - `category`: `app`, `game`, `driver`, `library`, `codec`, `theme`, `tool` or `system`.
    - `tags`: one to five words from the vocabulary below. Catalogue builds its **Categories** page from them, so use
      the words exactly (the checker rejects any other). Say what the item *is* first, then what it is *for*.
    - `releases`: the tags you ask to be approved, or `"latest"` (the newest non-prerelease, picked up daily).
-   - `compatibility.arch`: `arm` (phones), `x32` (PCs and virtual machines). Optional: `boards` (e.g. `["pinephone"]`),
+   - `compatibility.arch`: `arm` (32-bit ARM: phones), `x32` (amd64 with 32-bit pointers: PCs and virtual machines);
+     `aarch64` and `x64` are reserved for 64-bit userspace. Optional: `boards` (e.g. `["pinephone"]`),
      `min_core`, `legacy` (also runs on stock Symbian OS 9.x phones), `needs_platsec_hack` (installs only on a phone
      whose platform security is patched). `min_core` is the oldest core the item runs on, written as that core commit's
      UTC committer time, `YYYY.MM.DD.HHMMSS` (`TZ=UTC git log -1 --format=%cd --date=format-local:%Y.%m.%d.%H%M%S <commit>`

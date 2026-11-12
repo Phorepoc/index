@@ -9,7 +9,7 @@ defineProps({ item: { type: Object, required: true } })
     <span class="app-text">
       <span class="app-name">{{ item.name }}</span>
       <span class="app-sum">{{ item.summary }}</span>
-      <span class="app-meta">{{ archLabel(item) }} &middot; {{ item.license }}</span>
+      <span class="app-meta"><span v-for="a in item.arches" :key="a" class="arch">{{ archLabel({ arches: [a] }) }}</span> {{ item.license }}</span>
     </span>
   </router-link>
 </template>

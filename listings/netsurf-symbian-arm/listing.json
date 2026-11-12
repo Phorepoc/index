@@ -1,6 +1,7 @@
 {
   "id": "netsurf-symbian-arm",
-  "name": "NetSurf web engine (phones)",
+  "group": "netsurf-symbian",
+  "name": "NetSurf web engine",
   "category": "library",
   "tags": [
     "browser engine",
@@ -19,5 +20,8 @@
     "arch": [
       "arm"
     ]
-  }
+  },
+  "screenshots": [
+    "screenshot-1.png"
+  ]
 }

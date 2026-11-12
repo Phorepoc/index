@@ -20,8 +20,9 @@ ICONS = {
     "screenrec-a64-arm": ("record", A["videos"]),
     "dav-sync-arm": ("sync", A["contacts"]), "dav-sync-x32": ("sync", A["contacts"]),
     "tailscale-symbian-arm": ("tunnel", A["conversations"]), "tailscale-symbian-x32": ("tunnel", A["conversations"]),
-    "glib-symbian-x32": ("cube", A["notes"]), "gtk-symbian-x32": ("cube", A["photos"]), "dbus-symbian-x32": ("sync", A["notes"]),
-    "hildon-ui-x32": ("cube", A["calendar"]), "hildon-ui-demo-x32": ("play", A["calendar"]), "hildon-theme-alpha-x32": ("globe", A["calendar"]),
+    "glib-symbian-x32": ("cube", A["notes"]), "gtk-symbian-x32": ("window", A["photos"]), "dbus-symbian-x32": ("nodes", A["notes"]),
+    "hildon-ui-x32": ("panes", A["calendar"]), "hildon-ui-demo-x32": ("window", A["calendar"]), "hildon-theme-alpha-x32": ("brush", A["calendar"]),
+    "catalogue-arm": ("download", A["store"]), "catalogue-x32": ("download", A["store"]),
     "hildon-clock-widget-x32": ("clock", A["clock"]), "hildon-date-widget-x32": ("calendar", A["calendar"]),
     "hildon-settings-x32": ("sliders", A["contacts"]),
 }
@@ -47,7 +48,14 @@ CAT_GLYPHS = {
              ("line", [(8.5, 16), (12.5, 16)])],
     "sliders": [("line", [(4, 7), (20, 7)]), ("line", [(4, 17), (20, 17)]), ("circle", 9, 7, 2.4), ("circle", 15, 17, 2.4)],
 }
-G = icongen.GLYPHS
+# listing glyphs beyond icongen's set: a toolkit window (GTK, the Hildon demo), a window split in panes (the Hildon UI
+# framework); the category glyphs above are usable for listings too (nodes = D-Bus, brush = a theme)
+EXTRA_GLYPHS = {
+    "window": [("rrect", 3, 4, 18, 16, 2.5), ("line", [(3.5, 9), (20.5, 9)]), ("dot", 6.5, 6.5), ("dot", 9.5, 6.5)],
+    "panes": [("rrect", 3, 4, 18, 16, 2.5), ("line", [(9.5, 4.5), (9.5, 19.5)]), ("line", [(12.5, 9), (17.5, 9)]),
+              ("line", [(12.5, 13), (17.5, 13)])],
+}
+G = dict(icongen.GLYPHS, **CAT_GLYPHS, **EXTRA_GLYPHS)
 CATEGORIES = {
     "browser engine": (G["cog"], A["browser"]), "library": (G["cube"], A["maps"]), "codec": (G["play"], A["videos"]),
     "driver": (CAT_GLYPHS["chip"], A["calculator"]), "game": (CAT_GLYPHS["pad"], A["phone"]),
@@ -67,8 +75,8 @@ if __name__ == "__main__":
     for lid, (glyph, accent) in sorted(ICONS.items()):
         folder = os.path.join(ROOT, "listings", lid)
         with open(os.path.join(folder, "icon.svg"), "w", newline="\n") as f:
-            f.write(icongen.svg(icongen.GLYPHS[glyph], accent, lid))
-        icongen.render_png(icongen.GLYPHS[glyph], accent, 256).save(os.path.join(folder, "icon.png"))
+            f.write(icongen.svg(G[glyph], accent, lid))
+        icongen.render_png(G[glyph], accent, 256).save(os.path.join(folder, "icon.png"))
         print("icon:", lid, glyph, accent)
     os.makedirs(os.path.join(ROOT, "categories"), exist_ok=True)
     for tag, (glyph, accent) in CATEGORIES.items():

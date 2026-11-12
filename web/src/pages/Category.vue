@@ -8,13 +8,13 @@ const list = computed(() => (cat.value ? inCategory(cat.value.tag) : []))
 </script>
 
 <template>
-  <nav class="crumbs" aria-label="Breadcrumb"><router-link to="/">Catalogue</router-link> / <span>{{ cat ? cat.name : 'Category' }}</span></nav>
+  <nav class="crumbs" aria-label="Breadcrumb"><router-link to="/">Phorepoc Catalogue</router-link> / <span>{{ cat ? cat.name : 'Category' }}</span></nav>
   <template v-if="cat">
     <header class="page-head">
       <img class="icon" :src="cat.icon_url" alt="" width="64" height="64">
       <div>
         <h1>{{ cat.name }}</h1>
-        <p class="muted">{{ cat.count }} {{ cat.count === 1 ? 'item' : 'items' }}</p>
+        <p class="muted">{{ cat.count }} {{ cat.count === 1 ? 'app' : 'apps' }}</p>
       </div>
     </header>
     <ul class="app-list">

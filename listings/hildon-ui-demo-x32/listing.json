@@ -1,6 +1,7 @@
 {
   "id": "hildon-ui-demo-x32",
-  "name": "Hildon demo (PC)",
+  "group": "hildon-ui-demo",
+  "name": "Hildon demo",
   "category": "app",
   "tags": [
     "developer",

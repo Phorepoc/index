@@ -1,6 +1,7 @@
 {
   "id": "glib-symbian-x32",
-  "name": "GLib (PC)",
+  "group": "glib-symbian",
+  "name": "GLib",
   "category": "library",
   "tags": [
     "library",

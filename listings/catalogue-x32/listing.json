@@ -1,0 +1,27 @@
+{
+  "id": "catalogue-x32",
+  "group": "catalogue",
+  "name": "Catalogue",
+  "category": "app",
+  "tags": [
+    "system",
+    "tool"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/Phorepoc/catalogue",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/catalogue",
+    "asset": "^catalogue-x32[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "x32"
+    ]
+  },
+  "screenshots": [
+    "screenshot-1.png"
+  ]
+}

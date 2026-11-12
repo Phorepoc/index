@@ -1,6 +1,7 @@
 {
   "id": "hildon-settings-x32",
-  "name": "Hildon settings (PC)",
+  "group": "hildon-settings",
+  "name": "Hildon settings",
   "category": "app",
   "tags": [
     "system"
@@ -23,5 +24,9 @@
   },
   "requires": [
     "hildon-ui-x32"
+  ],
+  "screenshots": [
+    "screenshot-1.png",
+    "screenshot-2.png"
   ]
 }

@@ -1,6 +1,7 @@
 {
   "id": "dav-sync-x32",
-  "name": "phedav (contacts and calendar sync) (PC)",
+  "group": "dav-sync",
+  "name": "phedav (contacts and calendar sync)",
   "category": "tool",
   "tags": [
     "productivity",

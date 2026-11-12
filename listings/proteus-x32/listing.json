@@ -1,5 +1,6 @@
 {
   "id": "proteus-x32",
+  "group": "proteus",
   "name": "Proteus (ARM apps on the PC)",
   "category": "system",
   "tags": [

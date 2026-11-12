@@ -1,6 +1,7 @@
 {
   "id": "hildon-theme-alpha-x32",
-  "name": "Hildon theme alpha (PC)",
+  "group": "hildon-theme-alpha",
+  "name": "Hildon theme alpha",
   "category": "theme",
   "tags": [
     "theme"

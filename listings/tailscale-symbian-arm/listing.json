@@ -1,5 +1,6 @@
 {
   "id": "tailscale-symbian-arm",
+  "group": "tailscale-symbian",
   "name": "phetaild (tailnet client)",
   "category": "tool",
   "tags": [

@@ -1,6 +1,7 @@
 {
   "id": "hildon-date-widget-x32",
-  "name": "Hildon date widget (PC)",
+  "group": "hildon-date-widget",
+  "name": "Hildon date widget",
   "category": "app",
   "tags": [
     "productivity"
@@ -23,5 +24,8 @@
   },
   "requires": [
     "hildon-ui-x32"
+  ],
+  "screenshots": [
+    "screenshot-1.png"
   ]
 }

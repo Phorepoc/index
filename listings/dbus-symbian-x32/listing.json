@@ -1,6 +1,7 @@
 {
   "id": "dbus-symbian-x32",
-  "name": "D-Bus (PC)",
+  "group": "dbus-symbian",
+  "name": "D-Bus",
   "category": "library",
   "tags": [
     "library",

@@ -1,6 +1,7 @@
 {
   "id": "orbit-ui-x32",
-  "name": "Orbit (PC)",
+  "group": "orbit-ui",
+  "name": "Orbit",
   "category": "system",
   "tags": [
     "system",

@@ -1,5 +1,6 @@
 {
   "id": "codecpack-arm",
+  "group": "codecpack",
   "name": "Codec pack",
   "category": "codec",
   "tags": [

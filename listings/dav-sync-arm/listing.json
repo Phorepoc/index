@@ -1,5 +1,6 @@
 {
   "id": "dav-sync-arm",
+  "group": "dav-sync",
   "name": "phedav (contacts and calendar sync)",
   "category": "tool",
   "tags": [

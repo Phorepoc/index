@@ -1,6 +1,7 @@
 {
   "id": "gtk-symbian-x32",
-  "name": "GTK 2 (PC)",
+  "group": "gtk-symbian",
+  "name": "GTK 2",
   "category": "library",
   "tags": [
     "library",
