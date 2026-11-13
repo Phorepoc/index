@@ -20,6 +20,7 @@
     "arch": [
       "arm"
     ],
+    "min_core": "2026.11.13.101223",
     "legacy": true,
     "needs_platsec_hack": true
   },

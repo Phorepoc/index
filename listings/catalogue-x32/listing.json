@@ -19,7 +19,8 @@
   "compatibility": {
     "arch": [
       "x32"
-    ]
+    ],
+    "min_core": "2026.11.13.101223"
   },
   "screenshots": [
     "screenshot-1.png",
