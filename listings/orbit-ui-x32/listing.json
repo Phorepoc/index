@@ -20,5 +20,9 @@
     "arch": [
       "x32"
     ]
-  }
+  },
+  "requires": [
+    "qt-symbian-x32",
+    "qtmobility-x32"
+  ]
 }
