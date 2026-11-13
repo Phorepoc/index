@@ -14,6 +14,7 @@ A = icongen.ACCENTS
 # Our own icons only: listings that show their project's official logo (LOGOS.md) are not drawn here
 ICONS = {
     "webkit-symbian-arm": ("cog", A["browser"]), "webkit-symbian-x32": ("cog", A["browser"]),
+    "phebrowser-arm": ("compass", A["browser"]), "phebrowser-x32": ("compass", A["browser"]),
     "orbit-ui-x32": ("globe", A["photos"]),
     "screenrec-a64-arm": ("record", A["videos"]),
     "dav-sync-arm": ("sync", A["contacts"]), "dav-sync-x32": ("sync", A["contacts"]),

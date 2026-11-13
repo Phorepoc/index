@@ -1,0 +1,29 @@
+{
+  "id": "phebrowser-arm",
+  "group": "phebrowser",
+  "name": "Phorepoc Browser",
+  "category": "app",
+  "tags": [
+    "web"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/Phorepoc/core",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/core",
+    "asset": "^phebrowser-arm[.]sis$",
+    "text": "catalogue/phebrowser"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "arm"
+    ],
+    "legacy": true
+  },
+  "screenshots": [
+    "screenshot-1.png",
+    "screenshot-2.png"
+  ]
+}

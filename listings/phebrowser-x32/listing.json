@@ -1,0 +1,28 @@
+{
+  "id": "phebrowser-x32",
+  "group": "phebrowser",
+  "name": "Phorepoc Browser",
+  "category": "app",
+  "tags": [
+    "web"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/Phorepoc/core",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/core",
+    "asset": "^phebrowser-x32[.]sis$",
+    "text": "catalogue/phebrowser"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "x32"
+    ]
+  },
+  "screenshots": [
+    "screenshot-1.png",
+    "screenshot-2.png"
+  ]
+}
