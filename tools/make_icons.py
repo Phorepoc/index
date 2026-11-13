@@ -23,6 +23,7 @@ ICONS = {
     "proteus-x32": ("screenchip", A["calculator"]),
     "catalogue-arm": ("download", A["store"]), "catalogue-x32": ("download", A["store"]),
     "hildon-clock-widget-x32": ("clock", A["clock"]), "hildon-date-widget-x32": ("calendar", A["calendar"]),
+    "hildon-status-widget-x32": ("meters", A["notes"]),
     "hildon-settings-x32": ("sliders", A["contacts"]),
 }
 

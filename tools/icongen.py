@@ -302,4 +302,6 @@ GLYPHS = {
                  ("line", [(16, 2.5), (16, 6.5)]), ("dot", 8, 13.5), ("dot", 12, 13.5), ("dot", 16, 13.5), ("dot", 8, 17), ("dot", 12, 17)],
     "clock": [("circle", 12, 12, 9), ("line", [(12, 7), (12, 12), (15.5, 14)])],
     "sliders": [("line", [(4, 7), (20, 7)]), ("line", [(4, 17), (20, 17)]), ("circle", 9, 7, 2.4), ("circle", 15, 17, 2.4)],
+    # device status: two meters (memory, storage), each a track with its filled part
+    "meters": [("rrect", 3.5, 5, 17, 4.5, 2.25), ("line", [(5.5, 7.25), (13, 7.25)]), ("rrect", 3.5, 14.5, 17, 4.5, 2.25), ("line", [(5.5, 16.75), (9, 16.75)])],
 }
