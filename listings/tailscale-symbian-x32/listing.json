@@ -7,7 +7,7 @@
     "network",
     "security"
   ],
-  "license": "Apache-2.0 AND BSD-3-Clause AND (BSD-2-Clause OR CC0-1.0) AND MIT",
+  "license": "AGPL-3.0-only AND BSD-3-Clause AND (BSD-2-Clause OR CC0-1.0) AND MIT",
   "homepage": "https://github.com/Phorepoc/tailscale-symbian",
   "icon": "icon.png",
   "source": {
