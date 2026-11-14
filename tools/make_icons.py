@@ -25,6 +25,7 @@ ICONS = {
     "hildon-clock-widget-x32": ("clock", A["clock"]), "hildon-date-widget-x32": ("calendar", A["calendar"]),
     "hildon-status-widget-x32": ("meters", A["notes"]),
     "hildon-settings-x32": ("sliders", A["contacts"]),
+    "phecompat-arm": ("screens", A["calculator"]), "phecompat-x32": ("screens", A["calculator"]),
 }
 
 # One icon per tag of the fixed vocabulary (CONTRIBUTING.md): categories/<tag, spaces as dashes>.png (128 x 128) + .svg.
@@ -55,6 +56,7 @@ EXTRA_GLYPHS = {
     "screenchip": [("rrect", 2.5, 3.5, 19, 13, 2), ("line", [(9, 20.5), (15, 20.5)]), ("line", [(12, 16.5), (12, 20.5)]),
                    ("rrect", 9, 7, 6, 6, 1), ("line", [(10.5, 5), (10.5, 7)]), ("line", [(13.5, 5), (13.5, 7)]),
                    ("line", [(10.5, 13), (10.5, 15)]), ("line", [(13.5, 13), (13.5, 15)])],
+    "screens": [("rrect", 2.5, 6.5, 19, 11, 2), ("rrect", 8.5, 2.5, 7, 19, 2)],
     "panes": [("rrect", 3, 4, 18, 16, 2.5), ("line", [(9.5, 4.5), (9.5, 19.5)]), ("line", [(12.5, 9), (17.5, 9)]),
               ("line", [(12.5, 13), (17.5, 13)])],
 }

@@ -1,0 +1,25 @@
+{
+  "id": "phecompat-arm",
+  "group": "phecompat",
+  "name": "phecompat",
+  "category": "system",
+  "tags": [
+    "system",
+    "tool"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/Phorepoc/phecompat",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/phecompat",
+    "asset": "^phecompat-arm[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "arm"
+    ],
+    "min_core": "2026.11.14.063235"
+  }
+}
