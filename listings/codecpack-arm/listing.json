@@ -7,7 +7,7 @@
     "codec",
     "media"
   ],
-  "license": "Apache-2.0 AND LGPL-2.1-or-later",
+  "license": "(EPL-2.0 OR GPL-2.0-or-later) AND LGPL-2.1-or-later",
   "homepage": "https://github.com/Phorepoc/codecpack",
   "icon": "icon.png",
   "icon_credit": "The FFmpeg symbol (the logo by Mans Rullgard, public domain), unmodified (scaled); FFmpeg is a trademark of Fabrice Bellard.",
