@@ -26,6 +26,7 @@ ICONS = {
     "hildon-status-widget-x32": ("meters", A["notes"]),
     "hildon-settings-x32": ("sliders", A["contacts"]),
     "phecompat-arm": ("screens", A["calculator"]), "phecompat-x32": ("screens", A["calculator"]),
+    "tls-legacy-arm": ("shield", A["email"]),
 }
 
 # One icon per tag of the fixed vocabulary (CONTRIBUTING.md): categories/<tag, spaces as dashes>.png (128 x 128) + .svg.

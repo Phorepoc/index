@@ -1,0 +1,27 @@
+{
+  "id": "tls-legacy-arm",
+  "group": "tls-legacy",
+  "name": "TLS for older phones",
+  "category": "system",
+  "tags": [
+    "security",
+    "system"
+  ],
+  "license": "AGPL-3.0-only AND Apache-2.0 AND MPL-2.0",
+  "homepage": "https://github.com/Phorepoc/tls",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/tls",
+    "asset": "^tls-legacy-arm[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "arm"
+    ],
+    "legacy": true,
+    "needs_platsec_hack": true,
+    "builtin_on_phorepoc": true
+  }
+}

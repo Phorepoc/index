@@ -57,6 +57,9 @@
      in core). Every image states its own value as `core=` in `z:\resource\phorepoc\device.txt`, and Catalogue refuses
      an item whose `min_core` is newer ("Needs a newer system"). Set it when the package needs a core feature, for
      example the x32 loader's PC-relative imports (core fbeb597, `2026.11.10.165459`).
+     `builtin_on_phorepoc` (set by a maintainer, for items the Phorepoc OS image already has, and ships a ROM stub package
+     of the listing's UID for): Catalogue hides the listing on Phorepoc devices (it never offers to install or remove it
+     there) and shows it as usual on other phones. The website still lists it.
    - `requires`: ids of listings that must be installed first.
 
    **Tag vocabulary** (a fixed list; a new word is a change to `schema/listing.schema.json` by a maintainer):

@@ -78,6 +78,8 @@ class Listing(unittest.TestCase):
             "missing field": {k: v for k, v in GOOD.items() if k != "license"},
             "bad category": dict(GOOD, category="spaceship"),
             "bad arch": dict(GOOD, compatibility={"arch": ["mips"]}),
+            "builtin not a boolean": dict(GOOD, compatibility={"arch": ["arm"], "builtin_on_phorepoc": "yes"}),
+            "builtin at the top": dict(GOOD, builtin_on_phorepoc=True),
             "bad releases": dict(GOOD, releases="newest"),
             "folder name": dict(GOOD, id="other"),
             "missing icon": dict(GOOD, icon="icon.png"),
@@ -101,6 +103,11 @@ class Listing(unittest.TestCase):
     def test_latest_and_icon(self):
         self.write("hello", dict(GOOD, releases="latest", icon="icon.png"), files=["icon.png"])
         self.assertEqual(build_index.load_listing("hello", self.schema)["releases"], "latest")
+    def test_builtin_on_phorepoc(self):
+        compat = {"arch": ["arm"], "legacy": True, "needs_platsec_hack": True, "builtin_on_phorepoc": True}
+        self.write("hello", dict(GOOD, compatibility=compat))
+        self.assertIs(build_index.load_listing("hello", self.schema)["compatibility"]["builtin_on_phorepoc"], True)
+
     def test_tags(self):
         self.write("hello", dict(GOOD, tags=["browser engine", "web"]))
         self.assertEqual(build_index.load_listing("hello", self.schema)["tags"], ["browser engine", "web"])
