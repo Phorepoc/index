@@ -205,8 +205,10 @@ class Categories(unittest.TestCase):
         items = [{"tags": ["media", "codec"], "category": "codec"}, {"tags": ["web"], "category": "game"},
                  {"tags": ["browser engine", "web"], "category": "app"}]
         cats = build_index.categories(items, self.SCHEMA)
-        self.assertEqual([c["tag"] for c in cats], ["browser engine", "codec", "game", "media", "web"])  # vocabulary order
-        self.assertEqual({c["tag"]: c["count"] for c in cats}, {"browser engine": 1, "codec": 1, "game": 1, "media": 1, "web": 2})
+        self.assertEqual([c["tag"] for c in cats], ["browser engine", "codec", "game", "media", "web", "app"])  # vocabulary order, then the listing categories outside it
+        self.assertEqual({c["tag"]: c["count"] for c in cats}, {"browser engine": 1, "codec": 1, "game": 1, "media": 1, "web": 2, "app": 1})
+        self.assertEqual(cats[-1]["name"], "Apps")
+        self.assertTrue(cats[-1]["icon_url"].endswith("/categories/app.png"))
         self.assertEqual(cats[0]["name"], "Browser engines")
         self.assertTrue(cats[0]["icon_url"].endswith("/categories/browser-engine.png"))
         self.assertEqual(set(cats[0]), {"tag", "name", "count", "icon_url"})

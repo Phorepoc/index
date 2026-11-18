@@ -49,6 +49,8 @@ CAT_GLYPHS = {
     "pad2": [("rrect", 5, 3, 14, 18, 2), ("line", [(8.5, 8), (15.5, 8)]), ("line", [(8.5, 12), (15.5, 12)]),
              ("line", [(8.5, 16), (12.5, 16)])],
     "sliders": [("line", [(4, 7), (20, 7)]), ("line", [(4, 17), (20, 17)]), ("circle", 9, 7, 2.4), ("circle", 15, 17, 2.4)],
+    "grid": [("rrect", 3.5, 3.5, 7, 7, 2), ("rrect", 13.5, 3.5, 7, 7, 2), ("rrect", 3.5, 13.5, 7, 7, 2),
+             ("rrect", 13.5, 13.5, 7, 7, 2)],
 }
 # listing glyphs beyond icongen's set: an ARM chip on a PC screen (Proteus), a toolkit window (GTK, the Hildon demo), a window split in panes (the Hildon UI
 # framework); the category glyphs above are usable for listings too (nodes = D-Bus, brush = a theme)
@@ -70,6 +72,7 @@ CATEGORIES = {
     "graphics": (CAT_GLYPHS["picture"], A["calendar"]), "network": (CAT_GLYPHS["nodes"], A["conversations"]),
     "security": (CAT_GLYPHS["shield"], A["email"]), "productivity": (CAT_GLYPHS["pad2"], A["notes"]),
     "developer": (G["prompt"], A["store"]), "system": (CAT_GLYPHS["sliders"], A["contacts"]),
+    "app": (CAT_GLYPHS["grid"], A["store"]),   # the listing category "app" (not a tag): Catalogue's "Apps" group
 }
 
 

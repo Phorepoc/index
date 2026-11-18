@@ -195,7 +195,7 @@ def plain(md: str) -> str:
 NAMES = {"browser engine": "Browser engines", "library": "Libraries", "codec": "Codecs", "driver": "Drivers",
          "game": "Games", "theme": "Themes", "tool": "Tools", "media": "Media", "web": "Web", "graphics": "Graphics",
          "network": "Network", "security": "Security", "productivity": "Productivity", "developer": "Developer",
-         "system": "System"}
+         "system": "System", "app": "Apps"}
 BANNER = {"title": "Welcome to Catalogue", "text": "Apps, codecs, engines and tools for your Phorepoc phone, from open source."}
 
 
@@ -209,6 +209,15 @@ def categories(items: list, schema: dict) -> list:
         if n:
             out.append({"tag": tag, "name": NAMES.get(tag, tag.capitalize()), "count": n,
                         "icon_url": f"{BASE}/categories/{tag.replace(' ', '-')}.png"})
+    # a listing category outside the tag vocabulary ("app") is a group on Catalogue's home page too: it gets its name
+    # and icon here, or the page shows the bare word with an empty icon
+    for cat in schema["properties"]["category"]["enum"]:
+        if cat in vocab:
+            continue
+        n = sum(1 for i in items if i.get("category") == cat)
+        if n:
+            out.append({"tag": cat, "name": NAMES.get(cat, cat.capitalize()), "count": n,
+                        "icon_url": f"{BASE}/categories/{cat}.png"})
     return out
 
 
