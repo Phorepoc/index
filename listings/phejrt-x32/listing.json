@@ -1,0 +1,20 @@
+{
+  "id": "phejrt-x32",
+  "group": "phejrt",
+  "name": "Java runtime",
+  "category": "library",
+  "tags": ["library", "developer"],
+  "license": "GPL-2.0-only",
+  "homepage": "https://github.com/Phorepoc/phejrt",
+  "icon": "icon.png",
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/phejrt",
+    "asset": "^phejava-runtime-x32[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": ["x32"],
+    "min_core": "2026.11.10.165459"
+  }
+}

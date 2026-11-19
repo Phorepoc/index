@@ -1,0 +1,23 @@
+{
+  "id": "phejrt-demo-x32",
+  "group": "phejrt-demo",
+  "name": "Java runtime demo",
+  "category": "app",
+  "tags": ["developer"],
+  "license": "GPL-2.0-only",
+  "homepage": "https://github.com/Phorepoc/phejrt",
+  "icon": "icon.png",
+  "screenshots": ["shot1.png"],
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/phejrt",
+    "asset": "^phejava-demo-x32[.]sis$",
+    "text": "catalogue/demo"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": ["x32"],
+    "min_core": "2026.11.10.165459"
+  },
+  "requires": ["phejrt-x32"]
+}
