@@ -1,0 +1,28 @@
+{
+  "id": "etesian-ui-x32",
+  "group": "etesian-ui",
+  "name": "Etesian",
+  "category": "system",
+  "tags": [
+    "system",
+    "theme"
+  ],
+  "license": "Apache-2.0 AND OFL-1.1 AND MIT",
+  "homepage": "https://github.com/Phorepoc/etesian-ui",
+  "icon": "icon.png",
+  "screenshots": [
+    "shot1.png",
+    "shot2.png"
+  ],
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/etesian-ui",
+    "asset": "^etesian-ui-x32[.]sis$"
+  },
+  "releases": "latest",
+  "compatibility": {
+    "arch": [
+      "x32"
+    ]
+  }
+}
