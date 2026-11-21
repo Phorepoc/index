@@ -1,0 +1,30 @@
+{
+  "id": "etesian-ui-arm",
+  "group": "etesian-ui",
+  "name": "Etesian",
+  "category": "system",
+  "tags": [
+    "system",
+    "theme"
+  ],
+  "license": "Apache-2.0 AND OFL-1.1 AND MIT",
+  "homepage": "https://github.com/Phorepoc/etesian-ui",
+  "icon": "icon.png",
+  "screenshots": [
+    "shot1.png",
+    "shot2.png"
+  ],
+  "source": {
+    "type": "github",
+    "repo": "Phorepoc/etesian-ui",
+    "asset": "^etesian-ui-arm[.]sis$"
+  },
+  "releases": ["v0.1.1"],
+  "compatibility": {
+    "arch": [
+      "arm"
+    ],
+    "min_core": "2026.11.21.112556",
+    "boards": ["pinephone"]
+  }
+}
