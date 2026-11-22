@@ -7,7 +7,7 @@
     "system",
     "theme"
   ],
-  "license": "Apache-2.0 AND OFL-1.1 AND MIT",
+  "license": "AGPL-3.0-only",
   "homepage": "https://github.com/Phorepoc/etesian-ui",
   "icon": "icon.png",
   "screenshots": [
@@ -19,7 +19,7 @@
     "repo": "Phorepoc/etesian-ui",
     "asset": "^etesian-ui-x32[.]sis$"
   },
-  "releases": ["v0.3.1"],
+  "releases": ["v0.3.2"],
   "compatibility": {
     "arch": [
       "x32"
