@@ -19,7 +19,7 @@
     "repo": "Phorepoc/etesian-ui",
     "asset": "^etesian-ui-x32[.]sis$"
   },
-  "releases": ["v0.4.1"],
+  "releases": ["v0.4.2"],
   "compatibility": {
     "arch": [
       "x32"
