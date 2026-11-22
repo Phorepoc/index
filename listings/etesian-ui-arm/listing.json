@@ -19,7 +19,7 @@
     "repo": "Phorepoc/etesian-ui",
     "asset": "^etesian-ui-arm[.]sis$"
   },
-  "releases": ["v0.3.2"],
+  "releases": ["v0.4.0"],
   "compatibility": {
     "arch": [
       "arm"
