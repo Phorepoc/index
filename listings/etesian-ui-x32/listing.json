@@ -10,17 +10,6 @@
   "license": "AGPL-3.0-only",
   "homepage": "https://github.com/Phorepoc/etesian-ui",
   "icon": "icon.png",
-  "screenshots": [
-      "shot1.png",
-      "shot2.png",
-      "shot3.png",
-      "shot4.png",
-      "shot5.png",
-      "shot6.png",
-      "shot7.png",
-      "shot8.png",
-      "shot9.png"
-  ],
   "source": {
     "type": "github",
     "repo": "Phorepoc/etesian-ui",
